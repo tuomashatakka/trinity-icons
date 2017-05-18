@@ -1,0 +1,45 @@
+image: node:6.5.0
+
+stages:
+  - build
+  - test
+  - deploy
+
+pages:
+  stage: deploy
+  script:
+  - npm run clean
+  - npm run build
+  - npm run deploy
+  artifacts:
+    paths:
+    - public
+  only:
+  - master
+
+cache:
+  untracked: true
+  paths:
+  - node_modules/
+
+before_script:
+  - apt-get update
+  - apt-get install -y nodejs npm
+  - npm install
+  - export NODE_ENV=production
+  - mkdir public/assets && cp -R assets public/assets
+
+# build:
+#  stage: build
+#  script:
+#  - npm run build
+
+# test:
+#  stage: test
+#  script:
+#  - npm run test
+
+# deploy:
+#  stage: deploy
+#  script:
+#  - node bin/deploy.js

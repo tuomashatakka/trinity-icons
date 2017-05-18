@@ -23,6 +23,15 @@ function elem (attr={}, ...children) {
   return el
 }
 
+function observeScroll (fnc) {
+  let callback = (e) => fnc(e)
+  let unbind = () => window.removeEventListener('scroll', callback)
+  let bind = () => window.addEventListener('scroll', callback)
+
+  bind()
+  return unbind
+}
+
 const ICON_SIZES = ['xsmall', 'small', 'medium', 'large', 'huge']
 
 class NavigationView {
@@ -33,17 +42,51 @@ class NavigationView {
   render () {
     const view = this
     return elem(
-      {
-        type: 'nav',
-      },
-      {
-        type: 'a',
+
+      { type: 'nav', },
+
+      { type: 'a',
+        class: 'size',
         content: "Medium size",
         onclick: function (e) {
           view.changeIconSize()
-          this.innerHTML = `${view.iconSize} size`
-        }
-      }
+          this.setAttribute('data-size', view.iconSize)
+          this.innerHTML = `${view.iconSize} size` }},
+
+      { type: 'section',
+        class: 'grp variant',
+        children: [
+
+          { type: 'a',
+            class: 'active',
+            content: "Outline",
+            onclick: function (e) {
+              catalog.toggleVariant('outline')
+              this.classList.toggle('active')
+            }},
+
+          { type: 'a',
+            class: 'active',
+            content: "Regular",
+            onclick: function (e) {
+              catalog.toggleVariant('regular')
+              this.classList.toggle('active')
+            }},
+
+          { type: 'a',
+            class: 'active',
+            content: "Filled",
+            onclick: function (e) {
+              catalog.toggleVariant('filled')
+              this.classList.toggle('active')
+            }},
+        ]
+      },
+      { type: 'input',
+        placeholder: 'Search',
+        onkeyup: function () {
+          let value = this.value.trim()
+          catalog.query(value) }}
     )
   }
 
@@ -64,6 +107,11 @@ class NavigationView {
     document
       .querySelector(root)
       .appendChild(this.element)
+    let y = this.element.offsetTop
+    this.element.parentElement.style.setProperty('height',
+      this.element.parentElement.offsetHeight + this.element.offsetHeight + 'px')
+    let callback = () => this.element.classList.toggle('top', window.scrollY > y)
+    observeScroll(callback)
   }
 
 }
