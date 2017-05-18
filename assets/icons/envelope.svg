@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 320">
+  <defs>
+    <style>
+      .Graphic-Style, .cls-1 {
+        fill: none;
+        stroke: #1a1a1a;
+      }
+
+      .Graphic-Style {
+        stroke-miterlimit: 2;
+        stroke-width: 4px;
+      }
+
+      .cls-1 {
+        stroke-linejoin: round;
+        stroke-width: 8px;
+      }
+    </style>
+  </defs>
+  <title>envelope</title>
+  <g id="envelope">
+    <g>
+      <g>
+        <rect class="Graphic-Style" x="20" y="76" width="280" height="168"/>
+        <polygon class="Graphic-Style" points="300 76 160 168.308 20 76 300 76"/>
+      </g>
+      <g>
+        <rect class="cls-1" x="20" y="76" width="280" height="168"/>
+        <polygon class="cls-1" points="300 76 160 168.308 20 76 300 76"/>
+      </g>
+    </g>
+  </g>
+</svg>

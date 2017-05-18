@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 320">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: #1a1a1a;
+      }
+
+      .cls-2 {
+        fill: none;
+        stroke: #1a1a1a;
+        stroke-miterlimit: 2;
+        stroke-width: 4px;
+      }
+    </style>
+  </defs>
+  <title>file-filled</title>
+  <g id="file">
+    <g>
+      <path class="cls-1" d="M73.6667,288V32h128l42.6667,42.6667V288Zm128-213.3333h42.6667L201.6667,32Z"/>
+      <path class="cls-2" d="M73.6667,288V32h128l42.6667,42.6667V288Zm128-213.3333h42.6667L201.6667,32Z"/>
+    </g>
+  </g>
+</svg>

@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 320">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: none;
+        stroke: #1a1a1a;
+        stroke-miterlimit: 2;
+        stroke-width: 4px;
+      }
+    </style>
+  </defs>
+  <title>flag-outline</title>
+  <g id="Layer_15" data-name="Layer 15">
+    <path class="cls-1" d="M60,280V40m0,120H180V40H60Zm120,0-40,40H260V80H180Zm0,0H140v40Z"/>
+  </g>
+</svg>

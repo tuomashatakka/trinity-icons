@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 320">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: none;
+        stroke: #1a1a1a;
+        stroke-linejoin: round;
+        stroke-width: 8px;
+      }
+    </style>
+  </defs>
+  <title>music-play</title>
+  <g id="Layer_12" data-name="Layer 12">
+    <polygon class="cls-1" points="74 60 244 160 74 260 74 60"/>
+  </g>
+</svg>

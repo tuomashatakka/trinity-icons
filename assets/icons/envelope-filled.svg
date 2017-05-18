@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 320">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: #1a1a1a;
+        stroke: #1a1a1a;
+        stroke-miterlimit: 3;
+        stroke-width: 4px;
+      }
+    </style>
+  </defs>
+  <title>envelope-filled</title>
+  <g id="envelope">
+    <g>
+      <polygon class="cls-1" points="20 248.375 20 89.125 160 180.125 300 89.125 300 248.375 20 248.375"/>
+      <polygon class="cls-1" points="20 71.625 160 162.625 300 71.625 20 71.625"/>
+    </g>
+  </g>
+</svg>

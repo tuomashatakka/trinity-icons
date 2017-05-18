@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 320">
+  <defs>
+    <style>
+      .Graphic-Style {
+        fill: none;
+        stroke: #1a1a1a;
+        stroke-miterlimit: 2;
+        stroke-width: 4px;
+      }
+    </style>
+  </defs>
+  <title>tag-outline</title>
+  <g id="Layer_7" data-name="Layer 7">
+    <path class="Graphic-Style" d="M184,280,40,136V40h96L280,184ZM74.3831,54.1916A20.1916,20.1916,0,1,0,94.5747,74.3831,20.1916,20.1916,0,0,0,74.3831,54.1916Z"/>
+  </g>
+</svg>

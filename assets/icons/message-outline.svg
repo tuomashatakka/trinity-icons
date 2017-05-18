@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 320">
+  <defs>
+    <style>
+      .Graphic-Style {
+        fill: none;
+        stroke: #1a1a1a;
+        stroke-miterlimit: 2;
+        stroke-width: 4px;
+      }
+    </style>
+  </defs>
+  <title>message-outline</title>
+  <g id="message">
+    <path class="Graphic-Style" d="M70,285V255s-30,0-30-30V105s0-30,30-30H250s30,0,30,30V225s0,30-30,30H130Z"/>
+  </g>
+</svg>

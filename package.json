@@ -1,0 +1,33 @@
+{
+  "name": "trinity-icons",
+  "version": "0.1.0",
+  "description": "Multi-purpose icon set containing outlined and filled variants of each icon.",
+  "main": "src/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "svg": "node ./bin/compose-svg",
+    "font": "node ./bin/webfont"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://gitlab.com/tuomashatakka/trinity-icons.git"
+  },
+  "keywords": [
+    "icons",
+    "iconset",
+    "webfont",
+    "outline"
+  ],
+  "author": "Tuomas Hatakka",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://gitlab.com/tuomashatakka/trinity-icons/issues"
+  },
+  "homepage": "https://gitlab.com/tuomashatakka/trinity-icons#README",
+  "dependencies": {
+    "archiver": "^1.3.0",
+    "react": "^15.5.4",
+    "react-dom": "^15.5.4",
+    "webfonts-generator": "^0.4.0"
+  }
+}

@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 320">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: none;
+        stroke: #1a1a1a;
+        stroke-linejoin: round;
+        stroke-width: 8px;
+      }
+    </style>
+  </defs>
+  <title>music-play-pause</title>
+  <g id="Layer_12_copy" data-name="Layer 12 copy">
+    <g>
+      <polygon class="cls-1" points="35 60 205 160 35 260 35 60"/>
+      <rect class="cls-1" x="225" y="60" width="20" height="200"/>
+      <rect class="cls-1" x="265" y="60" width="20" height="200"/>
+    </g>
+  </g>
+</svg>

@@ -1,0 +1,14 @@
+<svg id="home" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 320">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: #1a1a1a;
+        stroke: #1a1a1a;
+        stroke-miterlimit: 2;
+        stroke-width: 4px;
+      }
+    </style>
+  </defs>
+  <title>home-filled</title>
+  <polygon class="cls-1" points="161.353 38.261 20 178.261 52.245 178.261 52.245 281.739 127.674 281.739 127.674 178.261 194.63 178.261 194.63 281.739 267.755 281.739 267.755 178.261 300 178.261 161.353 38.261"/>
+</svg>

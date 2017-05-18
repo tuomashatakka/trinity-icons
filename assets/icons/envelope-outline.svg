@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 320">
+  <defs>
+    <style>
+      .Graphic-Style {
+        fill: none;
+        stroke: #1a1a1a;
+        stroke-miterlimit: 2;
+        stroke-width: 4px;
+      }
+    </style>
+  </defs>
+  <title>envelope-outline</title>
+  <g id="envelope">
+    <g>
+      <rect class="Graphic-Style" x="20" y="76" width="280" height="168"/>
+      <polygon class="Graphic-Style" points="300 76 160 168.308 20 76 300 76"/>
+    </g>
+  </g>
+</svg>

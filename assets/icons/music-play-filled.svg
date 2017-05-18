@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 320">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: #1a1a1a;
+      }
+
+      .cls-2 {
+        fill: none;
+        stroke: #1a1a1a;
+        stroke-miterlimit: 2;
+        stroke-width: 4px;
+      }
+    </style>
+  </defs>
+  <title>music-play-filled</title>
+  <g id="Layer_12" data-name="Layer 12">
+    <g>
+      <polygon class="cls-1" points="75 60 245 160 75 260 75 60"/>
+      <polygon class="cls-2" points="75 60 245 160 75 260 75 60"/>
+    </g>
+  </g>
+</svg>

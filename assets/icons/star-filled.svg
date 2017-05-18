@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 320">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: #1a1a1a;
+      }
+
+      .cls-2 {
+        fill: none;
+        stroke: #1a1a1a;
+        stroke-miterlimit: 2;
+        stroke-width: 4px;
+      }
+    </style>
+  </defs>
+  <title>star-filled</title>
+  <g id="Layer_6" data-name="Layer 6">
+    <g>
+      <polygon class="cls-1" points="160 30 203.262 117.659 300 131.716 230 199.949 246.525 296.296 160 250.807 73.475 296.296 90 199.949 20 131.716 116.738 117.659 160 30"/>
+      <polygon class="cls-2" points="160 30 203.262 117.659 300 131.716 230 199.949 246.525 296.296 160 250.807 73.475 296.296 90 199.949 20 131.716 116.738 117.659 160 30"/>
+    </g>
+  </g>
+</svg>
