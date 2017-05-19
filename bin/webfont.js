@@ -37,10 +37,12 @@ function generateIconFont (dest='assets/font/') {
     console.error('Failed to create webfont:', error) :
     generateArchive('assets/iconfont', dest)
 
-  if (existsSync(dest))
-    rmdirSync(dest)
-  mkdirSync(dest)
+  if (!existsSync(dest))
+    mkdirSync(dest)
   webfont({ files, dest, fontName, templateOptions, rename }, callback)
 }
 
-generateIconFont()
+module.exports = {
+  generateIconFont,
+  generateArchive,
+}

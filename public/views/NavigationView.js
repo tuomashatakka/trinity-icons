@@ -86,12 +86,23 @@ class NavigationView {
         placeholder: 'Search',
         onkeyup: function () {
           let value = this.value.trim()
-          catalog.query(value) }}
+          catalog.query(value) }},
+
+      { type: 'a',
+        class: 'tri tri-flat-landscape-outline',
+        onclick: () => this.togglePreviewStyleEdit() },
     )
   }
 
   get element () {
     return this._element || (this._element = this.render())
+  }
+
+  togglePreviewStyleEdit () {
+    document
+      .querySelector('#preview')
+      .classList
+      .toggle('hidden')
   }
 
   changeIconSize () {
@@ -107,10 +118,10 @@ class NavigationView {
     document
       .querySelector(root)
       .appendChild(this.element)
+    // this.element.parentElement.style.setProperty('height',
+    //   this.element.parentElement.offsetHeight + this.element.offsetHeight + 'px')
     let y = this.element.offsetTop
-    this.element.parentElement.style.setProperty('height',
-      this.element.parentElement.offsetHeight + this.element.offsetHeight + 'px')
-    let callback = () => this.element.classList.toggle('top', window.scrollY > y)
+    let callback = () => document.body.classList.toggle('fixed-header', window.scrollY > y)
     observeScroll(callback)
   }
 

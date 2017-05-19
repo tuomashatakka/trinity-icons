@@ -4,9 +4,14 @@
   "description": "Multi-purpose icon set containing outlined and filled variants of each icon.",
   "main": "src/index.js",
   "scripts": {
+
+    "deploy": "node ./bin/deploy",
     "test": "echo \"Error: no test specified\" && exit 1",
+
     "svg": "node ./bin/compose-svg",
-    "font": "node ./bin/webfont"
+    "svg:flat": "node ./bin/compose-flattened-svg",
+    "font": "node ./bin/compose-font"
+
   },
   "repository": {
     "type": "git",
@@ -26,6 +31,7 @@
   "homepage": "https://gitlab.com/tuomashatakka/trinity-icons#README",
   "dependencies": {
     "archiver": "^1.3.0",
+    "ncp": "^2.0.0",
     "react": "^15.5.4",
     "react-dom": "^15.5.4",
     "webfonts-generator": "^0.4.0"

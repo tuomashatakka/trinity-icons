@@ -63,8 +63,9 @@ class SVGIconElement extends HTMLElement {
   }
 
   attachedCallback () {
+    let base = '' // 'icons.svg'
     this.name = this.getAttribute('name')
-    this.innerHTML = `<svg class='icon style-${this.variant}' name='${this.name}'><use href='icons.svg#${this.name}' /></svg>`
+    this.innerHTML = `<svg class='icon style-${this.variant}' name='${this.name}'><use href='${base}#${this.name}' /></svg>`
   }
 }
 
