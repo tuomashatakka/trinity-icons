@@ -1,5 +1,7 @@
 
-const defaultIconProvider = { get: () => [...icons].map(iconTemplate) }
+const defaultIconProvider = {
+  get: () => [...icons].map(iconTemplate)
+}
 
 var FILTER = {
   OUTLINE: item => item.svgLayer.variant === 'outline',
@@ -15,26 +17,33 @@ var FILTER = {
 }
 
 function iconTemplate (title) {
-  let name = 'icon'
-  let link = document.querySelector(`link[rel="import"][href*="${name}.html"]`)
-  let template  = link.import.querySelector(`template[data-name="${name}"]`)
+  let template
+  let name      = 'icon'
+  let link      = document.querySelector(`link[rel="import"][href*="${name}.html"]`)
+
+  if (link)
+    template    = link.import.querySelector(`template[data-name="${name}"]`)
+  else
+    template    = document.querySelector(`template[data-name="${name}"]`)
   let container = document.querySelector('#icons')
   let icon      = title
   let code      = '\\' + ICON_CODES[title]
   let data      = { title, icon, code }
 
-  return appendTemplate({ template, container, data })
+  return appendTemplate({ link, template, container, data })
 }
 
 
-function appendTemplate ({ template, container, data }) {
+function appendTemplate ({ link, template, container, data }) {
   container = this != window ? this : container || document.body
-  template  = document.importNode(template.content, true)
-  template  = container.appendChild(template)
+  if (link)
+    template = document.importNode(template.content, true)
+  template = template ? container.appendChild(template) : template
 
-  for (let key of Object.keys(data))
-    container.lastElementChild[key] = data[key]
 
+  if (container.lastElementChild)
+    for (let key of Object.keys(data))
+      container.lastElementChild[key] = data[key]
   return container.lastElementChild
 }
 

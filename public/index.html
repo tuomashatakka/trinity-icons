@@ -8,6 +8,7 @@
   <meta name="theme-color" content="#5669da">
   <link rel="stylesheet" href='assets/font/trinity.css' />
   <link rel="stylesheet/less" href='styles/index.less' />
+  <!-- <script src="https://jsconsole.com/js/remote.js?3fd1822e-2ecd-403b-a8da-dbaeaa775604"></script> -->
 
   <script>
   less = {
@@ -29,36 +30,34 @@
 
     <main>
 
-    <section id='preview' class='hidden'>
-      <label>
-        <h3>Color</h3>
-        <input data-bound='preview_style' name="color" value="#251f2e" type='color'>
-      </label>
-      <label>
-        <h3>Stroke weight</h3>
-        <input data-bound='preview_style' name="stroke-width" value=3 type="range" min=1 max=16>
-      </label>
-      <!-- <label>
-        <button type="reset">Reset</button>
-      </label> -->
-    </section>
+      <section id='preview' class='hidden'>
+        <label>
+          <h3>Color</h3>
+          <input data-bound='preview_style' name="color" value="#251f2e" type='color'>
+        </label>
+        <label>
+          <h3>Stroke weight</h3>
+          <input data-bound='preview_style' name="stroke-width" value=3 type="range" min=1 max=16>
+        </label>
+        <!-- <label> <button type="reset">Reset</button> </label> -->
+      </section>
 
-    <section id='description'>
-      <p>
-        Minimal icon set ready to use in SVG & font format.
-      </p>
-      <strong>
-        The iconset is at an early alpha stage.
-      </strong>
-    </section>
 
-    <section id='icons'></section>
+      <section id='description'>
+        <p>Minimal icon set ready to use in SVG & font format.</p>
+        <strong>The iconset is at an early alpha stage.</strong>
+      </section>
+
+
+      <section id='icons'></section>
+
 
     <link rel="import" href='views/icon.html' />
     <link rel="import" href='views/svg.html' />
 
     <script src='icons.js'></script>
     <script src='models/IconCatalog.js'></script>
+    <script src='views/OverlayView.js'></script>
     <script src="views/NavigationView.js"></script>
     <script src='index.js'></script>
 

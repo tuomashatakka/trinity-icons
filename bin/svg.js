@@ -52,9 +52,8 @@ function readAll ({ src, dst }) {
 }
 
 function appendToHTML ({ src, dst }) {
-  let [ before, after ] = getHTMLFragments(dst)
-  console.log(before, after) // FIXME: Remove
 
+  let [ before, after ] = getHTMLFragments(dst)
   let stream = createWriteStream(dst)
   let files  = getSVGFiles(src)
 
@@ -68,16 +67,26 @@ function appendToHTML ({ src, dst }) {
   stream.end()
 }
 
-function generateJSON({ src, dst }) {
-  let stream = createWriteStream(dst)
-  let files  = getSVGFiles(src)
-  stream.write(`var icons = [\n`)
-  for (let file of files) {
-    let comma    = file == files[files.length-1] ? '' : ', '
-    let contents = `"${slug(file)}"${comma}\n`
+function writeArray (stream, name, items) {
+  stream.write(`var ${name} = [\n`)
+  for (let item of items) {
+    let comma    = item == items[items.length - 1] ? '' : ', '
+    let contents = `"${slug(item)}"${comma}\n`
     stream.write(contents)
   }
   stream.write(`]\n`)
+}
+
+function generateJSON({ src, dst }) {
+
+  let stream  = createWriteStream(dst)
+  let files   = getSVGFiles(src)
+  let flatten = files.filter(name => name.startsWith('flat-'))
+  let regular = files.filter(name => !name.startsWith('flat-'))
+
+  writeArray(stream, 'icons', regular)
+  writeArray(stream, 'icons_flattened', flatten)
+
   stream.end()
 }
 
