@@ -199,7 +199,7 @@ icon-entry:hover {
   transform:  scale(1.25);
   box-shadow: 1rem 1.5rem 2rem rgba(0, 0, 0, 0.1) }
 
-icon-entry svg-icon {
+svg-icon {
   -webkit-font-smoothing: antialiased;
   text-shadow: 0px 0px 3px rgba(0, 0, 0, 0.15);
   position: absolute;
@@ -207,23 +207,9 @@ icon-entry svg-icon {
   left: 0;
   right: 0;
   bottom: 0;
-  display: block;
-  width:   100% }
+  display: block }
 
-icon-entry .icon {
-  position: relative;
-  padding: 0 0 100%;
-  margin:  0 auto;
-  height:  0;
-
-  [data-size='xsmall'] &  { width: 20px }
-  [data-size='small'] &   { width: 40px }
-  [data-size='medium'] &  { width: 80px }
-  [data-size='large'] &   { width: 160px }
-  [data-size='huge'] &    { width: 320px }
-}
-
-icon-entry svg.icon {
+svg.icon {
   display: block;
   fill: transparent;
   stroke: currentColor;
@@ -233,6 +219,19 @@ icon-entry svg.icon {
   padding: 0;
   width:   100%;
   height:  100% }
+
+.icon {
+  position: relative;
+  padding: 0 0 100%;
+  margin:  0 auto;
+  height:  100%;
+
+  [data-size='xsmall'] &  { width: 20px; stroke-width: 18px }
+  [data-size='small'] &   { width: 40px; stroke-width: 9px }
+  [data-size='medium'] &  { width: 80px; stroke-width: 6px }
+  [data-size='large'] &   { width: 160px; stroke-width: 3px }
+  [data-size='huge'] &    { width: 320px; stroke-width: 2px }
+}
 
 /* fill: #e4225d; */
 
@@ -245,12 +244,12 @@ icon-entry svg.icon {
 .icon.style-filled {
   stroke-width: 0px;
   fill: currentColor }
-
-.icon[name^="flat-"].style-filled,
-.icon[name^="flat-"].style-outline,
-.icon[name^="flat-"].style-default {
-  stroke-width: 0;
-  fill: currentColor }
+//
+// .icon[name^="flat-"].style-filled,
+// .icon[name^="flat-"].style-outline,
+// .icon[name^="flat-"].style-default {
+//   stroke-width: 0;
+//   fill: currentColor }
 
 
 
@@ -324,8 +323,8 @@ input[type="color"] {
     border-radius: 50% }
 
 .size {
-  position: relative;
-}
+  position: relative }
+
 .size::before {
   content: "";
   display: block;
@@ -349,16 +348,29 @@ svg { width: 100% }
   display: flex;
   min-width: 70vw }
 
-.overlay article section {
+.overlay article > * {
   flex: 1 1 auto }
 
-.overlay .icon {
-  flex: 0 1 auto;
-  width:  12rem;
-  margin:  0 4rem 0 0;
-  padding: 1rem }
+.overlay article section {
+  padding: 4em 1em }
+
+.overlay article > .icon {
+  width:   12rem;
+  min-width: 10em;
+  height: auto;
+  padding: 0;
+  background: linear-gradient(18deg, #252f3e, #333D62);
+  text-shadow: 0 3rem 0 rgba(255,255,255,0.5);
+  color: white }
+
+.overlay svg-icon {
+  position: absolute;
+  padding:  0 0 100%;
+  width:    100%;
+  height:   0 }
 
 .overlay svg.icon {
+  position: absolute;
   width: 100%;
   padding: 0 }
 
@@ -439,18 +451,20 @@ svg { width: 100% }
     position:      absolute;
     top:           50%;
     left:          50%;
-    padding:       4em;
     border-radius: 6px;
     background:    @background;
     box-shadow:    1px 4px 8rem fade(black, 18%);
     border:        1px solid darken(@background, 11%);
-  }
+    max-height:    100vh;
+    max-width:     100vw;
+    overflow:      auto }
 
   h2 {
-    letter-spacing: 0;
+    letter-spacing: -0.02em;
     text-transform: none;
     padding-bottom: 0.5em;
     font-size:      3em;
+    font-weight:    100;
   }
 
   h3 {
@@ -471,14 +485,17 @@ svg { width: 100% }
 }
 
 code {
-  font-family: anonymous pro;
-  font-weight: 100;
-  font-size:   0.8em;
-  padding:     0.5em;
+  font-family: source code pro, anonymous pro;
+  font-weight: 500;
+  font-size:   0.92em;
   color:       #f0f8ff;
-  background:  #68abe6;
-  border-radius: 3px;
-  border: 1px solid #5798d9;
+  background:  #251f2e;
+  border-radius: 2px;
+  border:      0 solid #261f32;
+  display:     block;
+  border-width: 0 0 1px;
+  padding:     0.4em 1.2em 0.3em;
+  margin:      0.3em 0;
 }
 
 ol, ul {
