@@ -1,5 +1,5 @@
 const { readFileSync, readdirSync, createWriteStream } = require("fs")
-const { resolve } = require("path")
+const { resolve, basename } = require("path")
 const { slug, BASE_PATH, PUBLIC_PATH, getHTMLFragments } = require('./utils')
 
 function getSVGFiles (dir) {
@@ -8,8 +8,9 @@ function getSVGFiles (dir) {
   return files || []
 }
 
-function readSVG (name) {
-  let path = resolve(`${BASE_PATH}/${name}`)
+function readSVG (fullpath) {
+  let path = resolve(fullpath)
+  let name = basename(path)
   let content = ''
   let viewBox = [0, 0, 128, 128]
   try {
@@ -42,10 +43,12 @@ function wrapSymbol ({ name, content, viewBox }) {
 function readAll ({ src, dst }) {
   let stream = createWriteStream(dst)
   let files  = getSVGFiles(src)
+  console.log(src, files) // FIXME: Remove
+
 
   stream.write(`<svg xmlns="http://www.w3.org/2000/svg">\n`)
   for (let file of files) {
-    stream.write(readSVG(file))
+    stream.write(readSVG(resolve(src + '/' + file)))
   }
   stream.write(`</svg>\n`)
   stream.end()
