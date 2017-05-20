@@ -63,7 +63,7 @@ let handler = e => addStylesheet('preview_style', 'icon-entry svg.icon',
   [...fields].reduce((attr, field) => Object.assign(attr, {[field.getAttribute('name')]: field.value }), {}))
 
 var navView = new NavigationView()
-var overlay = new OverlayView("asd")
+var overlay = new OverlayView()
 var catalog = new IconCatalog()
 navView.appendTo('header')
 fields.forEach(field => field.addEventListener('change', handler))
