@@ -30,22 +30,51 @@
 
     <main>
 
-      <section id='preview' class='hidden'>
-        <label>
-          <h3>Color</h3>
-          <input data-bound='preview_style' name="color" value="#251f2e" type='color'>
-        </label>
-        <label>
-          <h3>Stroke weight</h3>
-          <input data-bound='preview_style' name="stroke-width" value=3 type="range" min=1 max=16>
-        </label>
-        <!-- <label> <button type="reset">Reset</button> </label> -->
-      </section>
-
-
       <section id='description'>
         <p>Minimal icon set ready to use in SVG & font format.</p>
-        <strong>The iconset is at an early alpha stage.</strong>
+        <strong>This project is at an early alpha stage. It is not recommended to use the icons in production environment yet.</strong>
+      </section>
+
+      <section id="menu">
+
+        <button class='tri tri-arrow-left'></button>
+
+        <div data-bind="preview">
+
+          <h3>Preview & styling</h3>
+
+          <label data-dispatch='preview.color'>
+            <h3>Color</h3>
+            <input name="color" value="#251f2e" type='color'>
+          </label>
+          <label data-dispatch='preview.stroke'>
+            <h3>Stroke weight</h3>
+            <input name="stroke-width" value=3 type="range" min=0 max=8>
+          </label>
+          <label data-dispatch='preview.size' class="grp">
+            <h3>Size</h3>
+            <input type="radio" name="width" value="xsmall" />
+            <input type="radio" name="width" value="small" checked='checked' />
+            <input type="radio" name="width" value="medium" />
+            <input type="radio" name="width" value="large" />
+            <input type="radio" name="width" value="huge" />
+          </label>
+        </div>
+
+        <div>
+
+          <h3>Filter</h3>
+
+          <article data-dispatch='filter.variant'>
+            <label><input type='checkbox' name='variant' value='regular' checked='checked' /> Regular</label>
+            <label><input type='checkbox' name='variant' value='outline' checked='checked' /> Outline</label>
+            <label><input type='checkbox' name='variant' value='filled' checked='checked' /> Filled</label>
+          </article>
+          <label data-dispatch='filter.search'>
+            <input type='search' name='search' placeholder='Search...' />
+          </label>
+        </div>
+
       </section>
 
 

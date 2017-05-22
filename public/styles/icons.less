@@ -1,0 +1,95 @@
+
+
+
+.stroke (@size, @stroke: 6, @width: 100%) {
+
+  [data-size=~"@{size}"] &,
+  [data-size=~"@{size}"] ~ .overlay & {
+
+    width: @width;
+
+    &.style-regular {
+      stroke-width: unit(@stroke, px) }
+
+    &.style-outline {
+      stroke-width: unit(@stroke / 2, px) }
+
+    &.style-filled {
+      stroke-width: unit(@stroke / 2, px) }
+
+  }
+}
+
+icon-entry {
+  user-select: none;
+  text-align:  center;
+  display:     block;
+  cursor:      pointer;
+
+  padding:       0em;
+  flex:          0 1 3em;
+  transition:   .3s all .1s;
+  border-radius: 4px }
+
+icon-entry h3 {
+  padding:         0.5em 0 0;
+  font-size:       0.4em;
+  letter-spacing: -0.05em;
+  text-transform:  lowercase }
+
+icon-entry.hidden {
+  display: none }
+
+icon-entry:hover {
+  background: #ff3a88;
+  color:      #ffffff;
+  z-index:    1200;
+  transition: .1s all 0s;
+  transform:  scale(1.25);
+  box-shadow: 1rem 1.5rem 2rem rgba(0, 0, 0, 0.1) }
+
+svg-icon {
+  -webkit-font-smoothing: antialiased;
+  text-shadow: 0px 0px 3px rgba(0, 0, 0, 0.15);
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: block }
+
+svg.icon {
+  display: block;
+  fill: transparent;
+  stroke: currentColor;
+  stroke-linejoin: round;
+  stroke-linecap: round;
+  stroke-miterlimit: 1;
+  padding: 0;
+  width:   100%;
+  height:  100% }
+
+.icon {
+  position: relative;
+  padding: 0 0 100%;
+  margin:  0 auto;
+  // height:  100%;
+
+  .stroke('xsmall',  14,  24px);
+  .stroke('small',   10,  48px);
+  .stroke('medium',  7,   80px);
+  .stroke('large',   3.5, 160px);
+  .stroke('huge',    2,   320px);
+
+  &.style-filled {
+    fill: currentColor }
+
+}
+
+/* fill: #e4225d; */
+//
+// .icon[name^="flat-"].style-filled,
+// .icon[name^="flat-"].style-outline,
+// .icon[name^="flat-"].style-default {
+//   stroke-width: 0;
+//   fill: currentColor }

@@ -16,7 +16,7 @@ function constructOverlayElement () {
   bodyEl.appendChild(content)
   element.appendChild(bodyEl)
 
-  return document.body.appendChild(element)
+  return document.body.querySelector('main').appendChild(element)
 }
 
 let loader

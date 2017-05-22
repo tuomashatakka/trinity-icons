@@ -4,10 +4,11 @@ const defaultIconProvider = {
 }
 
 var FILTER = {
-  OUTLINE: item => item.svgLayer.variant === 'outline',
-  DEFAULT: item => item.svgLayer.variant === 'regular',
-  FILLED: item => item.svgLayer.variant === 'filled',
-  VARIANT: function (item) { return (this.displayedVariants.indexOf(item.svgLayer.variant) > -1) },
+  OUTLINE: item => item.variant === 'outline',
+  DEFAULT: item => item.variant === 'regular',
+  FILLED: item => item.variant === 'filled',
+
+  VARIANT: function (item) { return (this.displayedVariants.indexOf(item.variant) > -1) },
   QUERY: function (item) {
     let term = this.queryTerm
     return !term || (typeof item === 'string' ?
@@ -99,6 +100,12 @@ class IconCatalog {
 
   toggleVariant (style) {
     this.toggleFilter(style, 'variant')
+  }
+
+  updateVariants (...variants) {
+    this.displayedVariants = variants
+    this.update(true)
+    return this.filter(...this.activeFilters)
   }
 
   toggleFilter (filter, group=null) {

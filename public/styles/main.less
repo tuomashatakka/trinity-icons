@@ -1,0 +1,78 @@
+
+
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0 }
+
+a {
+  color: @color-highlight;
+  font-weight: 500;
+  text-decoration: none }
+
+h1, h2, h3, h4, h5, h6 {
+  font-weight: 400;
+  font-family: Gotham, Novecento Sans Wide, Montserrat, Raleway;
+  text-transform: uppercase;
+  letter-spacing: 0.1em }
+
+h1 {
+  top:   50%;
+  left:  50%;
+  color: white;
+  position:    absolute;
+  text-align:  center;
+  font-size:   1em;
+  font-weight: 100;
+  transform:   translate(-50%, -50%);
+  letter-spacing: 1em;
+  mix-blend-mode: screen;
+  text-shadow: 0.9em 0px 0px rgba(185, 234, 241, 0.3) }
+
+h3 {
+  font-size:      0.5em;
+  line-height:    1.25em;
+  letter-spacing: 0 }
+
+ol, ul {
+  margin-left: 1.5em }
+
+kbd {
+  display: none }
+
+code {
+  @color-background: #251f2e;
+  @color-border:     darken(@color-background, 8%);
+  font-family: hack, source code pro, anonymous pro;
+  display:     inline-block;
+  font-weight: 500;
+  font-size:   0.92em;
+  color:       #f0f8ff;
+  border-radius: 3px;
+  border-width: 0 0 1px;
+  border-style: solid;
+  border-color: @color-border;
+  background:   @color-background;
+  padding:      0.4em 1.2em 0.3em;
+  margin:       0.3em 0 }
+
+button {
+  appearance: none;
+  border:     none;
+  flex: 1 1;
+  padding: 0 1.5em;
+  border-radius: 4em;
+  background-color: #5669da;
+  background-image: linear-gradient(120deg, transparent 33%, #ff3a88 133%);
+  color: white;
+  background-position: 0 0;
+  text-align: center;
+  transition: .3s all }
+
+a:focus,
+button:focus {
+  outline: none }
+
+a:hover {
+  transition-duration: .1s;
+  background-color: #ff3a88 }

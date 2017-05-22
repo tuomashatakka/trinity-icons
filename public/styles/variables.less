@@ -1,0 +1,32 @@
+
+@color-white:     #fefeff;
+@color-highlight: #5669da;
+@color-purple:    #5f0c58;
+
+@body-background: linear-gradient(110deg, @color-purple, @color-highlight);
+@overlay-background: linear-gradient(110deg, #cfd8f5, #f5f6f9);
+@overlay-background: linear-gradient(110deg, rgba(81, 117, 236, 0.12), rgb(255, 246, 250));
+
+.phone (@rules) {
+  @media screen and (max-width: 800px) {
+    @rules();
+  }
+}
+
+.title () {
+  font-weight:     100;
+  font-size:       3em;
+  padding:         0 0 0.5em;
+  letter-spacing: -0.02em;
+  text-transform:  none;
+
+  .phone ({
+    font-weight:   400;
+    font-size:     1.5em })}
+
+.subtitle () {
+  padding:         2em 0 0;
+  font-size:       1em;
+  letter-spacing: -0.05em;
+  text-transform:  none;
+}
