@@ -1,7 +1,7 @@
 
-import * as ez from './dom'
+// import * as ez from './dom'
 
 export default {
   asd: 'basd',
-  ez,
+  // ezd: ez,
 }

@@ -5,8 +5,7 @@
  "file": "/Users/tuomas/Projects/Modules/trinity-icons/dist/index.js",
  "sourceRoot": "",
  "names": [
-  "ez",
   "asd"
  ],
- "mappings": ";;;;;;AACA;;IAAYA,E;;;;kBAEG;AACbC,OAAK,MADQ;AAEbD;AAFa,C"
+ "mappings": ";;;;;;AACA;;kBAEe;AACbA,OAAK;AADQ,C"
 }

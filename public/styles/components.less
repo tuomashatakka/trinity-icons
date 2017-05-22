@@ -131,9 +131,9 @@
       color:       white;
       height:      auto;
       width:       12rem;
+      width:       60%;
       padding:     0;
       min-width:   4rem;
-      text-shadow: 0 3rem 0 rgba(255,255,255,0.5);
 
       .phone({
         float:         right;
@@ -151,7 +151,15 @@
   svg.icon {
     position: absolute;
     width: 100% !important;
+    color: @color-highlight;
     padding: 0 }
+
+  svg.icon.style-filled {
+    stroke-width: 2 }
+  svg.icon.style-outline {
+    stroke-width: 3 }
+  svg.icon.style-regular {
+    stroke-width: 6 }
 
   .close {
     cursor:     pointer;
