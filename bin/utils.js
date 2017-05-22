@@ -3,10 +3,11 @@ const { writeFileSync, readFileSync, readdirSync } = require("fs")
 const { resolve, basename, join } = require("path")
 
 
-const PUBLIC_PATH = resolve(__dirname + '/../public')
-const ASSETS_PATH = resolve(__dirname + '/../assets')
-const BASE_PATH   = resolve(__dirname + '/../assets/icons')
-const LIB_PATH    = resolve(__dirname + '/../assets/lib')
+const ROOT_PATH   = resolve(__dirname + '/../')
+const PUBLIC_PATH = resolve(ROOT_PATH + '/public')
+const ASSETS_PATH = resolve(ROOT_PATH + '/assets')
+const BASE_PATH   = resolve(ROOT_PATH + '/assets/icons')
+const LIB_PATH    = resolve(ROOT_PATH + '/assets/lib')
 
 const INDEX_FILE_PATH = join(PUBLIC_PATH, 'index.html')
 
@@ -84,6 +85,7 @@ module.exports = {
 
   LIB_PATH,
   BASE_PATH,
+  ROOT_PATH,
   PUBLIC_PATH,
   ASSETS_PATH,
   INDEX_FILE_PATH,

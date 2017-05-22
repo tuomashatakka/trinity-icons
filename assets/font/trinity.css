@@ -1,8 +1,8 @@
 @font-face {
 	font-family: "trinity";
-	src: url("trinity.eot?4272a5ccfc974f93f07373fe4ef1951a?#iefix") format("embedded-opentype"),
-url("trinity.woff2?4272a5ccfc974f93f07373fe4ef1951a") format("woff2"),
-url("trinity.woff?4272a5ccfc974f93f07373fe4ef1951a") format("woff");
+	src: url("trinity.eot?213d9bea03836d0ff8cb4ba11d80bd16?#iefix") format("embedded-opentype"),
+url("trinity.woff2?213d9bea03836d0ff8cb4ba11d80bd16") format("woff2"),
+url("trinity.woff?213d9bea03836d0ff8cb4ba11d80bd16") format("woff");
 }
 
 .tri {
@@ -106,963 +106,1146 @@ url("trinity.woff?4272a5ccfc974f93f07373fe4ef1951a") format("woff");
 .tri-briefcase:before {
 	content: "\f11e";
 }
-.tri-camera-filled:before {
+.tri-bullet-filled:before {
 	content: "\f11f";
 }
-.tri-camera-outline:before {
+.tri-bullet-outline:before {
 	content: "\f120";
 }
-.tri-camera:before {
+.tri-bullet:before {
 	content: "\f121";
 }
-.tri-checkmark-filled:before {
+.tri-camera-filled:before {
 	content: "\f122";
 }
-.tri-checkmark-outline:before {
+.tri-camera-outline:before {
 	content: "\f123";
 }
-.tri-checkmark:before {
+.tri-camera:before {
 	content: "\f124";
 }
-.tri-cloud-outline:before {
+.tri-cat-filled:before {
 	content: "\f125";
 }
-.tri-cloud:before {
+.tri-cat-outline:before {
 	content: "\f126";
 }
-.tri-cog-filled:before {
+.tri-cat:before {
 	content: "\f127";
 }
-.tri-cog-outline:before {
+.tri-checkmark-filled:before {
 	content: "\f128";
 }
-.tri-cog:before {
+.tri-checkmark-outline:before {
 	content: "\f129";
 }
-.tri-color-outline:before {
+.tri-checkmark:before {
 	content: "\f12a";
 }
-.tri-color:before {
+.tri-cloud-outline:before {
 	content: "\f12b";
 }
-.tri-compass-filled:before {
+.tri-cloud:before {
 	content: "\f12c";
 }
-.tri-compass-outline:before {
+.tri-cog-filled:before {
 	content: "\f12d";
 }
-.tri-compass:before {
+.tri-cog-outline:before {
 	content: "\f12e";
 }
-.tri-cylinder-filled:before {
+.tri-cog:before {
 	content: "\f12f";
 }
-.tri-cylinder-outline:before {
+.tri-color-outline:before {
 	content: "\f130";
 }
-.tri-cylinder:before {
+.tri-color:before {
 	content: "\f131";
 }
-.tri-database-filled:before {
+.tri-compass-filled:before {
 	content: "\f132";
 }
-.tri-database-outline:before {
+.tri-compass-outline:before {
 	content: "\f133";
 }
-.tri-database:before {
+.tri-compass:before {
 	content: "\f134";
 }
-.tri-display-filled:before {
+.tri-cross-circled-filled:before {
 	content: "\f135";
 }
-.tri-display-outline:before {
+.tri-cross-circled-outline:before {
 	content: "\f136";
 }
-.tri-display:before {
+.tri-cross-outline:before {
 	content: "\f137";
 }
-.tri-dots-horizontal-filled:before {
+.tri-cylinder-filled:before {
 	content: "\f138";
 }
-.tri-dots-horizontal-outline:before {
+.tri-cylinder-outline:before {
 	content: "\f139";
 }
-.tri-dots-horizontal:before {
+.tri-cylinder:before {
 	content: "\f13a";
 }
-.tri-drag-outline:before {
+.tri-dash-circled-filled:before {
 	content: "\f13b";
 }
-.tri-drag:before {
+.tri-dash-circled-outline:before {
 	content: "\f13c";
 }
-.tri-earth-filled:before {
+.tri-dash-outline:before {
 	content: "\f13d";
 }
-.tri-earth-outline:before {
+.tri-database-filled:before {
 	content: "\f13e";
 }
-.tri-earth:before {
+.tri-database-outline:before {
 	content: "\f13f";
 }
-.tri-enlarge-filled:before {
+.tri-database:before {
 	content: "\f140";
 }
-.tri-enlarge:before {
+.tri-display-filled:before {
 	content: "\f141";
 }
-.tri-envelope-filled:before {
+.tri-display-outline:before {
 	content: "\f142";
 }
-.tri-envelope-outline:before {
+.tri-display:before {
 	content: "\f143";
 }
-.tri-envelope:before {
+.tri-dots-horizontal-filled:before {
 	content: "\f144";
 }
-.tri-female-filled:before {
+.tri-dots-horizontal-outline:before {
 	content: "\f145";
 }
-.tri-female-outline:before {
+.tri-dots-horizontal:before {
 	content: "\f146";
 }
-.tri-female:before {
+.tri-download-filled:before {
 	content: "\f147";
 }
-.tri-file-code-filled:before {
+.tri-download-outline:before {
 	content: "\f148";
 }
-.tri-file-code-outline:before {
+.tri-download:before {
 	content: "\f149";
 }
-.tri-file-code:before {
+.tri-drag-outline:before {
 	content: "\f14a";
 }
-.tri-file-empty-filled:before {
+.tri-drag:before {
 	content: "\f14b";
 }
-.tri-file-empty-outline:before {
+.tri-earth-filled:before {
 	content: "\f14c";
 }
-.tri-file-empty:before {
+.tri-earth-outline:before {
 	content: "\f14d";
 }
-.tri-file-filled:before {
+.tri-earth:before {
 	content: "\f14e";
 }
-.tri-file-outline:before {
+.tri-enlarge-filled:before {
 	content: "\f14f";
 }
-.tri-file-text-filled:before {
+.tri-enlarge:before {
 	content: "\f150";
 }
-.tri-file-text-outline:before {
+.tri-envelope-filled:before {
 	content: "\f151";
 }
-.tri-file-text:before {
+.tri-envelope-outline:before {
 	content: "\f152";
 }
-.tri-file:before {
+.tri-envelope:before {
 	content: "\f153";
 }
-.tri-files-filled:before {
+.tri-female-filled:before {
 	content: "\f154";
 }
-.tri-files-outline:before {
+.tri-female-outline:before {
 	content: "\f155";
 }
-.tri-files:before {
+.tri-female:before {
 	content: "\f156";
 }
-.tri-flag-filled:before {
+.tri-file-code-filled:before {
 	content: "\f157";
 }
-.tri-flag-outline:before {
+.tri-file-code-outline:before {
 	content: "\f158";
 }
-.tri-flag:before {
+.tri-file-code:before {
 	content: "\f159";
 }
-.tri-flat-arrow-cw-filled:before {
+.tri-file-empty-filled:before {
 	content: "\f15a";
 }
-.tri-flat-arrow-cw-outline:before {
+.tri-file-empty-outline:before {
 	content: "\f15b";
 }
-.tri-flat-arrow-cw:before {
+.tri-file-empty:before {
 	content: "\f15c";
 }
-.tri-flat-arrow-down-filled:before {
+.tri-file-filled:before {
 	content: "\f15d";
 }
-.tri-flat-arrow-down-outline:before {
+.tri-file-outline:before {
 	content: "\f15e";
 }
-.tri-flat-arrow-down:before {
+.tri-file-text-filled:before {
 	content: "\f15f";
 }
-.tri-flat-arrow-left-filled:before {
+.tri-file-text-outline:before {
 	content: "\f160";
 }
-.tri-flat-arrow-left-outline:before {
+.tri-file-text:before {
 	content: "\f161";
 }
-.tri-flat-arrow-left:before {
+.tri-file:before {
 	content: "\f162";
 }
-.tri-flat-arrow-right-filled:before {
+.tri-files-filled:before {
 	content: "\f163";
 }
-.tri-flat-arrow-right-outline:before {
+.tri-files-outline:before {
 	content: "\f164";
 }
-.tri-flat-arrow-right:before {
+.tri-files:before {
 	content: "\f165";
 }
-.tri-flat-arrow-up-filled:before {
+.tri-flag-filled:before {
 	content: "\f166";
 }
-.tri-flat-arrow-up-outline:before {
+.tri-flag-outline:before {
 	content: "\f167";
 }
-.tri-flat-arrow-up:before {
+.tri-flag:before {
 	content: "\f168";
 }
-.tri-flat-badge-filled:before {
+.tri-flat-align-center-filled:before {
 	content: "\f169";
 }
-.tri-flat-badge-outline:before {
+.tri-flat-align-center:before {
 	content: "\f16a";
 }
-.tri-flat-badge:before {
+.tri-flat-align-left-filled:before {
 	content: "\f16b";
 }
-.tri-flat-bell-filled:before {
+.tri-flat-align-left:before {
 	content: "\f16c";
 }
-.tri-flat-bell-outline:before {
+.tri-flat-align-right-filled:before {
 	content: "\f16d";
 }
-.tri-flat-bell:before {
+.tri-flat-align-right:before {
 	content: "\f16e";
 }
-.tri-flat-briefcase-filled:before {
+.tri-flat-arrow-cw-filled:before {
 	content: "\f16f";
 }
-.tri-flat-briefcase-outline:before {
+.tri-flat-arrow-cw-outline:before {
 	content: "\f170";
 }
-.tri-flat-briefcase:before {
+.tri-flat-arrow-cw:before {
 	content: "\f171";
 }
-.tri-flat-camera-filled:before {
+.tri-flat-arrow-down-filled:before {
 	content: "\f172";
 }
-.tri-flat-camera-outline:before {
+.tri-flat-arrow-down-outline:before {
 	content: "\f173";
 }
-.tri-flat-camera:before {
+.tri-flat-arrow-down:before {
 	content: "\f174";
 }
-.tri-flat-cloud-outline:before {
+.tri-flat-arrow-left-filled:before {
 	content: "\f175";
 }
-.tri-flat-cloud:before {
+.tri-flat-arrow-left-outline:before {
 	content: "\f176";
 }
-.tri-flat-cog-filled:before {
+.tri-flat-arrow-left:before {
 	content: "\f177";
 }
-.tri-flat-cog-outline:before {
+.tri-flat-arrow-right-filled:before {
 	content: "\f178";
 }
-.tri-flat-cog:before {
+.tri-flat-arrow-right-outline:before {
 	content: "\f179";
 }
-.tri-flat-compass-filled:before {
+.tri-flat-arrow-right:before {
 	content: "\f17a";
 }
-.tri-flat-compass-outline:before {
+.tri-flat-arrow-up-filled:before {
 	content: "\f17b";
 }
-.tri-flat-compass:before {
+.tri-flat-arrow-up-outline:before {
 	content: "\f17c";
 }
-.tri-flat-cylinder-filled:before {
+.tri-flat-arrow-up:before {
 	content: "\f17d";
 }
-.tri-flat-cylinder-outline:before {
+.tri-flat-badge-filled:before {
 	content: "\f17e";
 }
-.tri-flat-cylinder:before {
+.tri-flat-badge-outline:before {
 	content: "\f17f";
 }
-.tri-flat-database-filled:before {
+.tri-flat-badge:before {
 	content: "\f180";
 }
-.tri-flat-database-outline:before {
+.tri-flat-bell-filled:before {
 	content: "\f181";
 }
-.tri-flat-database:before {
+.tri-flat-bell-outline:before {
 	content: "\f182";
 }
-.tri-flat-display-filled:before {
+.tri-flat-bell:before {
 	content: "\f183";
 }
-.tri-flat-display-outline:before {
+.tri-flat-briefcase-filled:before {
 	content: "\f184";
 }
-.tri-flat-display:before {
+.tri-flat-briefcase-outline:before {
 	content: "\f185";
 }
-.tri-flat-dots-horizontal-filled:before {
+.tri-flat-briefcase:before {
 	content: "\f186";
 }
-.tri-flat-dots-horizontal-outline:before {
+.tri-flat-camera-filled:before {
 	content: "\f187";
 }
-.tri-flat-dots-horizontal:before {
+.tri-flat-camera-outline:before {
 	content: "\f188";
 }
-.tri-flat-earth-filled:before {
+.tri-flat-camera:before {
 	content: "\f189";
 }
-.tri-flat-earth-outline:before {
+.tri-flat-checkmark-filled:before {
 	content: "\f18a";
 }
-.tri-flat-earth:before {
+.tri-flat-checkmark-outline:before {
 	content: "\f18b";
 }
-.tri-flat-envelope-filled:before {
+.tri-flat-checkmark:before {
 	content: "\f18c";
 }
-.tri-flat-envelope-outline:before {
+.tri-flat-cloud-outline:before {
 	content: "\f18d";
 }
-.tri-flat-envelope:before {
+.tri-flat-cloud:before {
 	content: "\f18e";
 }
-.tri-flat-female-filled:before {
+.tri-flat-cog-filled:before {
 	content: "\f18f";
 }
-.tri-flat-female-outline:before {
+.tri-flat-cog-outline:before {
 	content: "\f190";
 }
-.tri-flat-female:before {
+.tri-flat-cog:before {
 	content: "\f191";
 }
-.tri-flat-file-filled:before {
+.tri-flat-color-outline:before {
 	content: "\f192";
 }
-.tri-flat-file-outline:before {
+.tri-flat-color:before {
 	content: "\f193";
 }
-.tri-flat-file:before {
+.tri-flat-compass-filled:before {
 	content: "\f194";
 }
-.tri-flat-flag-filled:before {
+.tri-flat-compass-outline:before {
 	content: "\f195";
 }
-.tri-flat-flag-outline:before {
+.tri-flat-compass:before {
 	content: "\f196";
 }
-.tri-flat-flag:before {
+.tri-flat-cylinder-filled:before {
 	content: "\f197";
 }
-.tri-flat-folder-filled:before {
+.tri-flat-cylinder-outline:before {
 	content: "\f198";
 }
-.tri-flat-folder-outline:before {
+.tri-flat-cylinder:before {
 	content: "\f199";
 }
-.tri-flat-folder:before {
+.tri-flat-database-filled:before {
 	content: "\f19a";
 }
-.tri-flat-hammer-filled:before {
+.tri-flat-database-outline:before {
 	content: "\f19b";
 }
-.tri-flat-hammer-outline:before {
+.tri-flat-database:before {
 	content: "\f19c";
 }
-.tri-flat-hammer:before {
+.tri-flat-display-filled:before {
 	content: "\f19d";
 }
-.tri-flat-heart-filled:before {
+.tri-flat-display-outline:before {
 	content: "\f19e";
 }
-.tri-flat-heart-outline:before {
+.tri-flat-display:before {
 	content: "\f19f";
 }
-.tri-flat-heart:before {
+.tri-flat-dots-horizontal-filled:before {
 	content: "\f1a0";
 }
-.tri-flat-home-filled:before {
+.tri-flat-dots-horizontal-outline:before {
 	content: "\f1a1";
 }
-.tri-flat-home-outline:before {
+.tri-flat-dots-horizontal:before {
 	content: "\f1a2";
 }
-.tri-flat-home:before {
+.tri-flat-drag-outline:before {
 	content: "\f1a3";
 }
-.tri-flat-infinity-filled:before {
+.tri-flat-drag:before {
 	content: "\f1a4";
 }
-.tri-flat-infinity-outline:before {
+.tri-flat-earth-filled:before {
 	content: "\f1a5";
 }
-.tri-flat-infinity:before {
+.tri-flat-earth-outline:before {
 	content: "\f1a6";
 }
-.tri-flat-landscape-outline:before {
+.tri-flat-earth:before {
 	content: "\f1a7";
 }
-.tri-flat-landscape:before {
+.tri-flat-enlarge-filled:before {
 	content: "\f1a8";
 }
-.tri-flat-layers-filled:before {
+.tri-flat-enlarge:before {
 	content: "\f1a9";
 }
-.tri-flat-layers-outline:before {
+.tri-flat-envelope-filled:before {
 	content: "\f1aa";
 }
-.tri-flat-layers:before {
+.tri-flat-envelope-outline:before {
 	content: "\f1ab";
 }
-.tri-flat-leaves-filled:before {
+.tri-flat-envelope:before {
 	content: "\f1ac";
 }
-.tri-flat-leaves-outline:before {
+.tri-flat-female-filled:before {
 	content: "\f1ad";
 }
-.tri-flat-leaves:before {
+.tri-flat-female-outline:before {
 	content: "\f1ae";
 }
-.tri-flat-location-filled:before {
+.tri-flat-female:before {
 	content: "\f1af";
 }
-.tri-flat-location-outline:before {
+.tri-flat-file-filled:before {
 	content: "\f1b0";
 }
-.tri-flat-location:before {
+.tri-flat-file-outline:before {
 	content: "\f1b1";
 }
-.tri-flat-lock-filled:before {
+.tri-flat-file:before {
 	content: "\f1b2";
 }
-.tri-flat-lock-outline:before {
+.tri-flat-flag-filled:before {
 	content: "\f1b3";
 }
-.tri-flat-lock:before {
+.tri-flat-flag-outline:before {
 	content: "\f1b4";
 }
-.tri-flat-male-filled:before {
+.tri-flat-flag:before {
 	content: "\f1b5";
 }
-.tri-flat-male-outline:before {
+.tri-flat-folder-filled:before {
 	content: "\f1b6";
 }
-.tri-flat-male:before {
+.tri-flat-folder-outline:before {
 	content: "\f1b7";
 }
-.tri-flat-message-filled:before {
+.tri-flat-folder:before {
 	content: "\f1b8";
 }
-.tri-flat-message-outline:before {
+.tri-flat-hammer-filled:before {
 	content: "\f1b9";
 }
-.tri-flat-message:before {
+.tri-flat-hammer-outline:before {
 	content: "\f1ba";
 }
-.tri-flat-microphone-filled:before {
+.tri-flat-hammer:before {
 	content: "\f1bb";
 }
-.tri-flat-microphone-outline:before {
+.tri-flat-heart-filled:before {
 	content: "\f1bc";
 }
-.tri-flat-microphone:before {
+.tri-flat-heart-outline:before {
 	content: "\f1bd";
 }
-.tri-flat-mug-filled:before {
+.tri-flat-heart:before {
 	content: "\f1be";
 }
-.tri-flat-mug-outline:before {
+.tri-flat-home-filled:before {
 	content: "\f1bf";
 }
-.tri-flat-mug:before {
+.tri-flat-home-outline:before {
 	content: "\f1c0";
 }
-.tri-flat-music-play-filled:before {
+.tri-flat-home:before {
 	content: "\f1c1";
 }
-.tri-flat-music-play-outline:before {
+.tri-flat-infinity-outline:before {
 	content: "\f1c2";
 }
-.tri-flat-music-play-pause-filled:before {
+.tri-flat-landscape-outline:before {
 	content: "\f1c3";
 }
-.tri-flat-music-play-pause-outline:before {
+.tri-flat-landscape:before {
 	content: "\f1c4";
 }
-.tri-flat-music-play-pause:before {
+.tri-flat-layers-filled:before {
 	content: "\f1c5";
 }
-.tri-flat-music-play:before {
+.tri-flat-layers-outline:before {
 	content: "\f1c6";
 }
-.tri-flat-note-filled:before {
+.tri-flat-layers:before {
 	content: "\f1c7";
 }
-.tri-flat-note-outline:before {
+.tri-flat-leaves-filled:before {
 	content: "\f1c8";
 }
-.tri-flat-note:before {
+.tri-flat-leaves-outline:before {
 	content: "\f1c9";
 }
-.tri-flat-pencil-filled:before {
+.tri-flat-leaves:before {
 	content: "\f1ca";
 }
-.tri-flat-pencil-outline:before {
+.tri-flat-location-filled:before {
 	content: "\f1cb";
 }
-.tri-flat-pencil-tip-filled:before {
+.tri-flat-location-outline:before {
 	content: "\f1cc";
 }
-.tri-flat-pencil-tip-outline:before {
+.tri-flat-location:before {
 	content: "\f1cd";
 }
-.tri-flat-pencil-tip:before {
+.tri-flat-lock-filled:before {
 	content: "\f1ce";
 }
-.tri-flat-pencil:before {
+.tri-flat-lock-outline:before {
 	content: "\f1cf";
 }
-.tri-flat-person-filled:before {
+.tri-flat-lock:before {
 	content: "\f1d0";
 }
-.tri-flat-person-outline:before {
+.tri-flat-male-filled:before {
 	content: "\f1d1";
 }
-.tri-flat-person:before {
+.tri-flat-male-outline:before {
 	content: "\f1d2";
 }
-.tri-flat-phone-filled:before {
+.tri-flat-male:before {
 	content: "\f1d3";
 }
-.tri-flat-phone-outline:before {
+.tri-flat-message-filled:before {
 	content: "\f1d4";
 }
-.tri-flat-phone:before {
+.tri-flat-message-outline:before {
 	content: "\f1d5";
 }
-.tri-flat-picture-filled:before {
+.tri-flat-message:before {
 	content: "\f1d6";
 }
-.tri-flat-picture-outline:before {
+.tri-flat-microphone-filled:before {
 	content: "\f1d7";
 }
-.tri-flat-picture:before {
+.tri-flat-microphone-outline:before {
 	content: "\f1d8";
 }
-.tri-flat-pie-chart-filled:before {
+.tri-flat-microphone:before {
 	content: "\f1d9";
 }
-.tri-flat-pie-chart-outline:before {
+.tri-flat-mug-filled:before {
 	content: "\f1da";
 }
-.tri-flat-pie-chart:before {
+.tri-flat-mug-outline:before {
 	content: "\f1db";
 }
-.tri-flat-pin-filled:before {
+.tri-flat-mug:before {
 	content: "\f1dc";
 }
-.tri-flat-pin-outline:before {
+.tri-flat-music-play-filled:before {
 	content: "\f1dd";
 }
-.tri-flat-pin:before {
+.tri-flat-music-play-outline:before {
 	content: "\f1de";
 }
-.tri-flat-plus-filled:before {
+.tri-flat-music-play-pause-filled:before {
 	content: "\f1df";
 }
-.tri-flat-plus-outline:before {
+.tri-flat-music-play-pause-outline:before {
 	content: "\f1e0";
 }
-.tri-flat-plus:before {
+.tri-flat-music-play-pause:before {
 	content: "\f1e1";
 }
-.tri-flat-refresh-filled:before {
+.tri-flat-music-play:before {
 	content: "\f1e2";
 }
-.tri-flat-refresh-outline:before {
+.tri-flat-no-parking-sign-filled:before {
 	content: "\f1e3";
 }
-.tri-flat-refresh:before {
+.tri-flat-no-parking-sign-outline:before {
 	content: "\f1e4";
 }
-.tri-flat-save-outline:before {
+.tri-flat-no-parking-sign:before {
 	content: "\f1e5";
 }
-.tri-flat-save:before {
+.tri-flat-note-filled:before {
 	content: "\f1e6";
 }
-.tri-flat-star-filled:before {
+.tri-flat-note-outline:before {
 	content: "\f1e7";
 }
-.tri-flat-star-outline:before {
+.tri-flat-note:before {
 	content: "\f1e8";
 }
-.tri-flat-star:before {
+.tri-flat-pencil-filled:before {
 	content: "\f1e9";
 }
-.tri-flat-tag-filled:before {
+.tri-flat-pencil-outline:before {
 	content: "\f1ea";
 }
-.tri-flat-tag-outline:before {
+.tri-flat-pencil-tip-filled:before {
 	content: "\f1eb";
 }
-.tri-flat-tag:before {
+.tri-flat-pencil-tip-outline:before {
 	content: "\f1ec";
 }
-.tri-flat-trash-filled:before {
+.tri-flat-pencil-tip:before {
 	content: "\f1ed";
 }
-.tri-flat-trash-outline:before {
+.tri-flat-pencil:before {
 	content: "\f1ee";
 }
-.tri-flat-trash:before {
+.tri-flat-person-filled:before {
 	content: "\f1ef";
 }
-.tri-flat-wrench-filled:before {
+.tri-flat-person-outline:before {
 	content: "\f1f0";
 }
-.tri-flat-wrench-outline:before {
+.tri-flat-person:before {
 	content: "\f1f1";
 }
-.tri-flat-wrench:before {
+.tri-flat-phone-filled:before {
 	content: "\f1f2";
 }
-.tri-folder-filled:before {
+.tri-flat-phone-outline:before {
 	content: "\f1f3";
 }
-.tri-folder-filled_1:before {
+.tri-flat-phone:before {
 	content: "\f1f4";
 }
-.tri-folder-open-filled:before {
+.tri-flat-picture-filled:before {
 	content: "\f1f5";
 }
-.tri-folder-open-outline:before {
+.tri-flat-picture-outline:before {
 	content: "\f1f6";
 }
-.tri-folder-open:before {
+.tri-flat-picture:before {
 	content: "\f1f7";
 }
-.tri-folder-outline:before {
+.tri-flat-pie-chart-filled:before {
 	content: "\f1f8";
 }
-.tri-folder:before {
+.tri-flat-pie-chart-outline:before {
 	content: "\f1f9";
 }
-.tri-hammer-filled:before {
+.tri-flat-pie-chart:before {
 	content: "\f1fa";
 }
-.tri-hammer-outline:before {
+.tri-flat-pin-filled:before {
 	content: "\f1fb";
 }
-.tri-hammer:before {
+.tri-flat-pin-outline:before {
 	content: "\f1fc";
 }
-.tri-heart-filled:before {
+.tri-flat-pin:before {
 	content: "\f1fd";
 }
-.tri-heart-outline:before {
+.tri-flat-plus-filled:before {
 	content: "\f1fe";
 }
-.tri-heart:before {
+.tri-flat-plus-outline:before {
 	content: "\f1ff";
 }
-.tri-home-filled:before {
+.tri-flat-plus:before {
 	content: "\f200";
 }
-.tri-home-outline:before {
+.tri-flat-refresh-filled:before {
 	content: "\f201";
 }
-.tri-home:before {
+.tri-flat-refresh-outline:before {
 	content: "\f202";
 }
-.tri-infinity-filled:before {
+.tri-flat-refresh:before {
 	content: "\f203";
 }
-.tri-infinity-outline:before {
+.tri-flat-save-outline:before {
 	content: "\f204";
 }
-.tri-infinity:before {
+.tri-flat-save:before {
 	content: "\f205";
 }
-.tri-landscape-outline:before {
+.tri-flat-shrink-filled:before {
 	content: "\f206";
 }
-.tri-landscape:before {
+.tri-flat-shrink:before {
 	content: "\f207";
 }
-.tri-layers-filled:before {
+.tri-flat-star-filled:before {
 	content: "\f208";
 }
-.tri-layers-outline:before {
+.tri-flat-star-outline:before {
 	content: "\f209";
 }
-.tri-layers:before {
+.tri-flat-star:before {
 	content: "\f20a";
 }
-.tri-leaves-filled:before {
+.tri-flat-tag-filled:before {
 	content: "\f20b";
 }
-.tri-leaves-outline:before {
+.tri-flat-tag-outline:before {
 	content: "\f20c";
 }
-.tri-leaves:before {
+.tri-flat-tag:before {
 	content: "\f20d";
 }
-.tri-location-filled:before {
+.tri-flat-trash-filled:before {
 	content: "\f20e";
 }
-.tri-location-outline:before {
+.tri-flat-trash-outline:before {
 	content: "\f20f";
 }
-.tri-location:before {
+.tri-flat-trash:before {
 	content: "\f210";
 }
-.tri-lock-filled:before {
+.tri-flat-type-filled:before {
 	content: "\f211";
 }
-.tri-lock-outline:before {
+.tri-flat-type-outline:before {
 	content: "\f212";
 }
-.tri-lock:before {
+.tri-flat-type:before {
 	content: "\f213";
 }
-.tri-male-filled:before {
+.tri-flat-undo-filled:before {
 	content: "\f214";
 }
-.tri-male-outline:before {
+.tri-flat-undo-outline:before {
 	content: "\f215";
 }
-.tri-male:before {
+.tri-flat-undo:before {
 	content: "\f216";
 }
-.tri-message-filled:before {
+.tri-flat-wrench-filled:before {
 	content: "\f217";
 }
-.tri-message-outline:before {
+.tri-flat-wrench-outline:before {
 	content: "\f218";
 }
-.tri-message:before {
+.tri-flat-wrench:before {
 	content: "\f219";
 }
-.tri-microphone-filled:before {
+.tri-folder-filled:before {
 	content: "\f21a";
 }
-.tri-microphone-outline:before {
+.tri-folder-filled_1:before {
 	content: "\f21b";
 }
-.tri-microphone:before {
+.tri-folder-open-filled:before {
 	content: "\f21c";
 }
-.tri-mug-filled:before {
+.tri-folder-open-outline:before {
 	content: "\f21d";
 }
-.tri-mug-outline:before {
+.tri-folder-open:before {
 	content: "\f21e";
 }
-.tri-mug:before {
+.tri-folder-outline:before {
 	content: "\f21f";
 }
-.tri-music-play-filled:before {
+.tri-folder:before {
 	content: "\f220";
 }
-.tri-music-play-outline:before {
+.tri-hammer-filled:before {
 	content: "\f221";
 }
-.tri-music-play-pause-filled:before {
+.tri-hammer-outline:before {
 	content: "\f222";
 }
-.tri-music-play-pause-outline:before {
+.tri-hammer:before {
 	content: "\f223";
 }
-.tri-music-play-pause:before {
+.tri-heart-filled:before {
 	content: "\f224";
 }
-.tri-music-play:before {
+.tri-heart-outline:before {
 	content: "\f225";
 }
-.tri-no-parking-sign-filled:before {
+.tri-heart:before {
 	content: "\f226";
 }
-.tri-no-parking-sign-outline:before {
+.tri-home-filled:before {
 	content: "\f227";
 }
-.tri-no-parking-sign:before {
+.tri-home-outline:before {
 	content: "\f228";
 }
-.tri-note-filled:before {
+.tri-home:before {
 	content: "\f229";
 }
-.tri-note-outline:before {
+.tri-hummingbird-filled:before {
 	content: "\f22a";
 }
-.tri-note:before {
+.tri-hummingbird-outline:before {
 	content: "\f22b";
 }
-.tri-paper-pile:before {
+.tri-hummingbird:before {
 	content: "\f22c";
 }
-.tri-pencil-filled:before {
+.tri-infinity-filled:before {
 	content: "\f22d";
 }
-.tri-pencil-outline:before {
+.tri-infinity-outline:before {
 	content: "\f22e";
 }
-.tri-pencil-tip-filled:before {
+.tri-infinity:before {
 	content: "\f22f";
 }
-.tri-pencil-tip-outline:before {
+.tri-keyboard-filled:before {
 	content: "\f230";
 }
-.tri-pencil-tip:before {
+.tri-keyboard-outline:before {
 	content: "\f231";
 }
-.tri-pencil:before {
+.tri-keyboard:before {
 	content: "\f232";
 }
-.tri-person-filled:before {
+.tri-landscape-outline:before {
 	content: "\f233";
 }
-.tri-person-outline:before {
+.tri-landscape:before {
 	content: "\f234";
 }
-.tri-person:before {
+.tri-layers-filled:before {
 	content: "\f235";
 }
-.tri-phone-filled:before {
+.tri-layers-outline:before {
 	content: "\f236";
 }
-.tri-phone-outline:before {
+.tri-layers:before {
 	content: "\f237";
 }
-.tri-phone:before {
+.tri-leaves-filled:before {
 	content: "\f238";
 }
-.tri-picture-filled:before {
+.tri-leaves-outline:before {
 	content: "\f239";
 }
-.tri-picture-outline:before {
+.tri-leaves:before {
 	content: "\f23a";
 }
-.tri-picture:before {
+.tri-location-filled:before {
 	content: "\f23b";
 }
-.tri-pie-chart-filled:before {
+.tri-location-outline:before {
 	content: "\f23c";
 }
-.tri-pie-chart-outline:before {
+.tri-location:before {
 	content: "\f23d";
 }
-.tri-pie-chart:before {
+.tri-lock-filled:before {
 	content: "\f23e";
 }
-.tri-pin-filled:before {
+.tri-lock-outline:before {
 	content: "\f23f";
 }
-.tri-pin-outline:before {
+.tri-lock:before {
 	content: "\f240";
 }
-.tri-pin:before {
+.tri-magnifying-lens:before {
 	content: "\f241";
 }
-.tri-pipette:before {
+.tri-male-filled:before {
 	content: "\f242";
 }
-.tri-plus-filled:before {
+.tri-male-outline:before {
 	content: "\f243";
 }
-.tri-plus-outline:before {
+.tri-male:before {
 	content: "\f244";
 }
-.tri-plus:before {
+.tri-message-filled:before {
 	content: "\f245";
 }
-.tri-refresh-filled:before {
+.tri-message-outline:before {
 	content: "\f246";
 }
-.tri-refresh-outline:before {
+.tri-message:before {
 	content: "\f247";
 }
-.tri-refresh:before {
+.tri-microphone-filled:before {
 	content: "\f248";
 }
-.tri-save-outline:before {
+.tri-microphone-outline:before {
 	content: "\f249";
 }
-.tri-save:before {
+.tri-microphone:before {
 	content: "\f24a";
 }
-.tri-shrink-filled:before {
+.tri-mouse-filled:before {
 	content: "\f24b";
 }
-.tri-shrink:before {
+.tri-mouse-outline:before {
 	content: "\f24c";
 }
-.tri-star-filled:before {
+.tri-mouse:before {
 	content: "\f24d";
 }
-.tri-star-outline:before {
+.tri-mug-filled:before {
 	content: "\f24e";
 }
-.tri-star:before {
+.tri-mug-outline:before {
 	content: "\f24f";
 }
-.tri-tag-filled:before {
+.tri-mug:before {
 	content: "\f250";
 }
-.tri-tag-outline:before {
+.tri-music-play-filled:before {
 	content: "\f251";
 }
-.tri-tag:before {
+.tri-music-play-outline:before {
 	content: "\f252";
 }
-.tri-trash-filled:before {
+.tri-music-play-pause-filled:before {
 	content: "\f253";
 }
-.tri-trash-outline:before {
+.tri-music-play-pause-outline:before {
 	content: "\f254";
 }
-.tri-trash:before {
+.tri-music-play-pause:before {
 	content: "\f255";
 }
-.tri-type-filled:before {
+.tri-music-play:before {
 	content: "\f256";
 }
-.tri-type-outline:before {
+.tri-no-parking-sign-filled:before {
 	content: "\f257";
 }
-.tri-type:before {
+.tri-no-parking-sign-outline:before {
 	content: "\f258";
 }
-.tri-undo-filled:before {
+.tri-no-parking-sign:before {
 	content: "\f259";
 }
-.tri-undo-outline:before {
+.tri-note-filled:before {
 	content: "\f25a";
 }
-.tri-undo:before {
+.tri-note-outline:before {
 	content: "\f25b";
 }
-.tri-wrench-filled:before {
+.tri-note:before {
 	content: "\f25c";
 }
-.tri-wrench-outline:before {
+.tri-paper-pile:before {
 	content: "\f25d";
 }
-.tri-wrench:before {
+.tri-pencil-filled:before {
 	content: "\f25e";
+}
+.tri-pencil-outline:before {
+	content: "\f25f";
+}
+.tri-pencil-tip-filled:before {
+	content: "\f260";
+}
+.tri-pencil-tip-outline:before {
+	content: "\f261";
+}
+.tri-pencil-tip:before {
+	content: "\f262";
+}
+.tri-pencil:before {
+	content: "\f263";
+}
+.tri-person-filled:before {
+	content: "\f264";
+}
+.tri-person-outline:before {
+	content: "\f265";
+}
+.tri-person:before {
+	content: "\f266";
+}
+.tri-phone-filled:before {
+	content: "\f267";
+}
+.tri-phone-outline:before {
+	content: "\f268";
+}
+.tri-phone:before {
+	content: "\f269";
+}
+.tri-picture-filled:before {
+	content: "\f26a";
+}
+.tri-picture-outline:before {
+	content: "\f26b";
+}
+.tri-picture:before {
+	content: "\f26c";
+}
+.tri-pie-chart-filled:before {
+	content: "\f26d";
+}
+.tri-pie-chart-outline:before {
+	content: "\f26e";
+}
+.tri-pie-chart:before {
+	content: "\f26f";
+}
+.tri-pin-filled:before {
+	content: "\f270";
+}
+.tri-pin-outline:before {
+	content: "\f271";
+}
+.tri-pin:before {
+	content: "\f272";
+}
+.tri-pipette:before {
+	content: "\f273";
+}
+.tri-plus-circled-filled:before {
+	content: "\f274";
+}
+.tri-plus-circled-outline:before {
+	content: "\f275";
+}
+.tri-plus-filled:before {
+	content: "\f276";
+}
+.tri-plus-outline:before {
+	content: "\f277";
+}
+.tri-plus:before {
+	content: "\f278";
+}
+.tri-refresh-filled:before {
+	content: "\f279";
+}
+.tri-refresh-outline:before {
+	content: "\f27a";
+}
+.tri-refresh:before {
+	content: "\f27b";
+}
+.tri-save-outline:before {
+	content: "\f27c";
+}
+.tri-save:before {
+	content: "\f27d";
+}
+.tri-screw-outline:before {
+	content: "\f27e";
+}
+.tri-screw:before {
+	content: "\f27f";
+}
+.tri-share-filled:before {
+	content: "\f280";
+}
+.tri-share-outline:before {
+	content: "\f281";
+}
+.tri-share:before {
+	content: "\f282";
+}
+.tri-shrink-filled:before {
+	content: "\f283";
+}
+.tri-shrink:before {
+	content: "\f284";
+}
+.tri-star-filled:before {
+	content: "\f285";
+}
+.tri-star-outline:before {
+	content: "\f286";
+}
+.tri-star:before {
+	content: "\f287";
+}
+.tri-tag-filled:before {
+	content: "\f288";
+}
+.tri-tag-outline:before {
+	content: "\f289";
+}
+.tri-tag:before {
+	content: "\f28a";
+}
+.tri-trash-filled:before {
+	content: "\f28b";
+}
+.tri-trash-outline:before {
+	content: "\f28c";
+}
+.tri-trash:before {
+	content: "\f28d";
+}
+.tri-type-filled:before {
+	content: "\f28e";
+}
+.tri-type-outline:before {
+	content: "\f28f";
+}
+.tri-type:before {
+	content: "\f290";
+}
+.tri-undo-filled:before {
+	content: "\f291";
+}
+.tri-undo-outline:before {
+	content: "\f292";
+}
+.tri-undo:before {
+	content: "\f293";
+}
+.tri-upload-filled:before {
+	content: "\f294";
+}
+.tri-upload-outline:before {
+	content: "\f295";
+}
+.tri-upload:before {
+	content: "\f296";
+}
+.tri-wrench-filled:before {
+	content: "\f297";
+}
+.tri-wrench-outline:before {
+	content: "\f298";
+}
+.tri-wrench:before {
+	content: "\f299";
+}
+.tri-zoom-in:before {
+	content: "\f29a";
+}
+.tri-zoom-out:before {
+	content: "\f29b";
 }

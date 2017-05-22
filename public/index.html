@@ -19,13 +19,18 @@
   };
   </script>
   <script src="assets/lib/less.min.js" type="text/javascript"></script>
+  <script src="src/main.js" type="text/javascript"></script>
 
   </head>
 
   <body>
 
     <header>
-      <h1>Tr1nity Icon Set</h1>
+      <section id='flow'></section>
+      <h1>
+        <svg class='icon'><use href='icons.svg#cat' /></svg>
+        Tr1nity Icon Set
+      </h1>
     </header>
 
     <main>
@@ -43,21 +48,23 @@
 
           <h3>Preview & styling</h3>
 
-          <label data-dispatch='preview.color'>
-            <h3>Color</h3>
-            <input name="color" value="#251f2e" type='color'>
-          </label>
-          <label data-dispatch='preview.stroke'>
-            <h3>Stroke weight</h3>
-            <input name="stroke-width" value=3 type="range" min=0 max=8>
-          </label>
           <label data-dispatch='preview.size' class="grp">
-            <h3>Size</h3>
+            <h4>Size</h4>
             <input type="radio" name="width" value="xsmall" />
             <input type="radio" name="width" value="small" checked='checked' />
             <input type="radio" name="width" value="medium" />
             <input type="radio" name="width" value="large" />
             <input type="radio" name="width" value="huge" />
+          </label>
+
+          <label data-dispatch='preview.color'>
+            <h4>Color</h4>
+            <input name="color" value="#251f2e" type='color'>
+          </label>
+
+          <label data-dispatch='preview.stroke'>
+            <h4>Stroke</h4>
+            <input name="stroke-width" value=3 type="range" min=0 max=12>
           </label>
         </div>
 
@@ -66,12 +73,24 @@
           <h3>Filter</h3>
 
           <article data-dispatch='filter.variant'>
-            <label><input type='checkbox' name='variant' value='regular' checked='checked' /> Regular</label>
-            <label><input type='checkbox' name='variant' value='outline' checked='checked' /> Outline</label>
-            <label><input type='checkbox' name='variant' value='filled' checked='checked' /> Filled</label>
+
+            <label>
+              <h4>Regular</h4>
+              <input type='checkbox' name='variant' value='regular' checked='checked' /></label>
+
+            <label>
+              <h4>Outline</h4>
+              <input type='checkbox' name='variant' value='outline' checked='checked' /></label>
+
+            <label>
+              <h4>Filled</h4>
+              <input type='checkbox' name='variant' value='filled' checked='checked' /></label>
           </article>
+
+          <h3>Search</h3>
+
           <label data-dispatch='filter.search'>
-            <input type='search' name='search' placeholder='Search...' />
+            <input type='search' name='search' placeholder='Type name tag or category' />
           </label>
         </div>
 

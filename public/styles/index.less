@@ -1,6 +1,7 @@
 
 
 @import "variables";
+@import "background";
 @import "components";
 @import "main";
 @import "icons";
@@ -31,7 +32,12 @@ body > svg {
 header {
   height: 98vh;
   background: @body-background;
-  position: relative }
+  position: relative;
+
+  #flow { .flow() }}
+
+header svg.icon {
+  stroke-width: 2 }
 
 header nav {
   display: none }
@@ -110,17 +116,17 @@ header nav {
   flex-flow:   column wrap;
   position:    fixed;
   display:     flex;
-  z-index:  1000;
-  right:    0;
-  top:      0;
+  z-index:     1000;
+  right:       0;
+  top:         0;
 
   > div {
     transition: .3s all 0s, 0s width .3s;
-    flex-flow:   column wrap;
     max-height: 0;
     opacity:    0;
     width:      0;
-    overflow:   hidden }
+    overflow:   hidden;
+    flex-flow:  column wrap }
 
   button {
     line-height: 1em;
@@ -131,12 +137,6 @@ header nav {
     box-sizing:  content-box;
     transform:   rotate(0deg) }
 
-  h3 {
-    padding: 1rem }
-
-  label h3 {
-    padding: 0rem }
-
   .grp {
     flex-wrap: wrap;
   }
@@ -144,10 +144,13 @@ header nav {
   &.open {
     background: @color-white;
     box-shadow: 0 0 3rem fade(black, 10%);
-    width: 22em;
+    width: 24rem;
 
     .phone ({
       width: 90% });
+
+    & ~ #icons {
+      margin-right: 24rem }
 
     input[type="radio"] { .phone ({
       padding: 0em 0.3em })}

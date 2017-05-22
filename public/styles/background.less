@@ -1,0 +1,48 @@
+
+@flow-colors: hsl(220, 95%, 40%),
+              hsl(350, 80%, 75%),
+              hsl(340, 99%, 65%),
+              hsl(229, 75%, 75%),
+              hsl(200, 90%, 65%),
+              hsl(180, 99%, 25%),
+              hsl(170, 80%, 50%),
+              hsl(160, 30%, 60%),
+              hsl(150, 99%, 70%),
+              hsl(140, 10%, 80%);
+@duration:    24s;
+@delay:       @duration / length(@flow-colors);
+@angle:       148deg;
+
+.flow() {
+
+  @keyframes gradient-flow {
+    000% { background: extract(@flow-colors, 01) }
+    010% { background: extract(@flow-colors, 02) }
+    020% { background: extract(@flow-colors, 03) }
+    030% { background: extract(@flow-colors, 04) }
+    040% { background: extract(@flow-colors, 05) }
+    050% { background: extract(@flow-colors, 06) }
+    060% { background: extract(@flow-colors, 07) }
+    070% { background: extract(@flow-colors, 08) }
+    080% { background: extract(@flow-colors, 09) }
+    090% { background: extract(@flow-colors, 10) }
+    100% { background: extract(@flow-colors, 01) }}
+
+  &, &::before {
+    width:      100%;
+    height:     100%;
+    display:    block;
+    position:   absolute;
+    animation:  gradient-flow @duration linear 0s infinite running;
+    background: extract(@flow-colors, 1) }
+
+  &::before {
+    content:            '';
+    animation-delay:    @delay;
+    -webkit-mask-image: linear-gradient(@angle, transparent, black);
+    -moz-mask-image:    linear-gradient(@angle, transparent, black);
+    mask-image:         linear-gradient(@angle, transparent, black) }
+
+  & + * {
+    color:          @color-highlight;
+    mix-blend-mode: luminosity }}

@@ -30,7 +30,7 @@ h1 {
   text-shadow: 0.9em 0px 0px rgba(185, 234, 241, 0.3) }
 
 h3 {
-  font-size:      0.5em;
+  // font-size:      0.5em;
   line-height:    1.25em;
   letter-spacing: 0 }
 
@@ -57,17 +57,22 @@ code {
   margin:       0.3em 0 }
 
 button {
-  appearance: none;
-  border:     none;
-  flex: 1 1;
-  padding: 0 1.5em;
-  border-radius: 4em;
+  cursor:           pointer;
+  text-align:       center;
+  appearance:       none;
+  border:           none;
+  color:            white;
+  flex:             1 1;
+  padding:          0 1.5em;
+  border-radius:    4em;
   background-color: #5669da;
   background-image: linear-gradient(120deg, transparent 33%, #ff3a88 133%);
-  color: white;
   background-position: 0 0;
-  text-align: center;
-  transition: .3s all }
+  transition:         .3s all;
+  &:hover {
+    background-color: #fbf4c1;
+  }
+ }
 
 a:focus,
 button:focus {
