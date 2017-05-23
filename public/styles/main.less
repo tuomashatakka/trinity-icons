@@ -5,11 +5,6 @@
   padding: 0;
   margin: 0 }
 
-a {
-  color: @color-highlight;
-  font-weight: 500;
-  text-decoration: none }
-
 h1, h2, h3, h4, h5, h6 {
   font-weight: 400;
   font-family: Gotham, Novecento Sans Wide, Montserrat, Raleway;
@@ -70,9 +65,11 @@ button {
   background-position: 0 0;
   transition:         .3s all;
   &:hover {
-    background-color: #fbf4c1;
-  }
- }
+    background-color: #fbf4c1 }}
+
+a {
+ color: @color-highlight;
+ text-decoration: none }
 
 a:focus,
 button:focus {
@@ -80,4 +77,4 @@ button:focus {
 
 a:hover {
   transition-duration: .1s;
-  background-color: #ff3a88 }
+  background-color: @color-accent }

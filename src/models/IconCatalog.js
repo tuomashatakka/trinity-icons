@@ -1,6 +1,6 @@
 
 const defaultIconProvider = {
-  get: () => [...icons].map(iconTemplate)
+  get: () => [...window.icons].map(iconTemplate)
 }
 
 var FILTER = {
@@ -36,11 +36,12 @@ function iconTemplate (title) {
 
 
 function appendTemplate ({ link, template, container, data }) {
-  container = this != window ? this : container || document.body
+  container = container || document.body
+
   if (link)
     template = document.importNode(template.content, true)
-  template = template ? container.appendChild(template) : template
 
+  template = template ? container.appendChild(template) : template
 
   if (container.lastElementChild)
     for (let key of Object.keys(data))
@@ -49,7 +50,7 @@ function appendTemplate ({ link, template, container, data }) {
 }
 
 
-class IconCatalog {
+export default class IconCatalog {
 
   constructor (provider=defaultIconProvider) {
 

@@ -21,6 +21,38 @@
 @overlay-side-background:   linear-gradient(18deg, #252f3e, #333D62);
 @overlay-shadow:            1px 4px 8rem fade(black, 18%);
 
+.columns {
+  display: flex;
+  flex-flow: row wrap;
+  padding: 2em 25vw 0;
+
+  > article {
+    text-align: left;
+    display: block;
+    flex: 0 0 100%;
+    padding: 0.25em 0.25em 2em;
+  }
+
+  .phone ({
+    font-size: 0.6em;
+    padding: 1em })
+}
+
+.btn {
+  display:       inline-block;
+  padding:       0.5em;
+  margin:        0 0 0.2em 0;
+  border:        1px solid;
+  border-radius: 3px;
+  .phone ({
+    letter-spacing: -0.01em;
+    font-weight: 400 })
+}
+
+.btn:hover {
+  color:      @color-white;
+  background: @color-highlight }
+
 .grp {
   // border-radius: 4rem;
   display: flex;

@@ -1,17 +1,13 @@
 
 
 let include_index = 0
-const ICON_CODES = {
-  kakka:  'e003',
-  pissa:  'e004',
-  note:   'e005',
-}
+
 const ACTION = {
   search:  value => catalog.query(value.trim()),
   variant: value => catalog.updateVariants(...value),
-  stroke:  value => updatePreviewStyles(),
-  color:   value => updatePreviewStyles(),
-  size:    value => updatePreviewStyles(),
+  stroke:  () => updatePreviewStyles(),
+  color:   () => updatePreviewStyles(),
+  size:    () => updatePreviewStyles(),
 }
 const PREVIEW_SIZE = {
   xsmall: '24px',
@@ -79,12 +75,10 @@ function include (path) {
 }
 
 function toObject (collection) {
-  console.info(collection)
   return [...collection].reduce((attr, field) => Object.assign(attr, {[field.getAttribute('name')]: valueOf(field) }), {})
 }
 
 function valueOf (el) {
-  console.log(el)
   if ('checkbox' === el.type)
     return Array.from(el.parentElement.parentElement.querySelectorAll(`input[name="${el.name}"]`))
       .filter(el => el.checked)
@@ -113,21 +107,21 @@ let menuToggle  = document.querySelector('#menu .tri-arrow-left')
 // let fields  = document.querySelectorAll('input[data-bound="preview_style"]')
 // let usspdatePreviewStyles = () => addStylesheet('preview_style', 'icon-entry svg.icon',
 //   [...fields].reduce((attr, field) => Object.assign(attr, {[field.getAttribute('name')]: field.value }), {}))
-let onObservableChange = function (namespace, event) {
+let onObservableChange = function (namespace) {
   let value = valueOf(this)
-  let [cat, act] = namespace
+  let [ cat, act ] = namespace
   let action = ACTION[act]
+
   if (typeof action === 'function')
-    return action.call(this, value)
+    return action.call(this, value, cat)
 }
+
 let toggleMenu = () => {
   document.querySelector('#menu').classList.toggle('open')
 }
 
-var navView = new NavigationView()
 var overlay = new OverlayView()
 var catalog = new IconCatalog()
-navView.appendTo('header')
 
 observables.forEach(element => {
   let fields    = element.querySelectorAll('input')

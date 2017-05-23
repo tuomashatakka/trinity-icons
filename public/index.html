@@ -10,6 +10,32 @@
   <link rel="stylesheet/less" href='styles/index.less' />
   <!-- <script src="https://jsconsole.com/js/remote.js?3fd1822e-2ecd-403b-a8da-dbaeaa775604"></script> -->
 
+  <style>
+  /**
+   * This is the default style for embedded icons
+   */
+  .ico {
+    stroke-miterlimit: 2;
+    stroke-linejoin: round;
+    stroke-linecap:  round;
+    stroke-width:    12;
+    stroke:          currentColor;
+    fill:            transparent;
+
+    vertical-align: middle;
+    display: inline-block;
+    height:  1.2em;
+    width:   1.2em }
+
+  .ico.large {
+    width: 4em }
+
+  .ico.fill {
+    stroke-width: 8;
+    fill: currentColor }
+
+  </style>
+
   <script>
   less = {
     env: "development",
@@ -19,7 +45,6 @@
   };
   </script>
   <script src="assets/lib/less.min.js" type="text/javascript"></script>
-  <script src="src/main.js" type="text/javascript"></script>
 
   </head>
 
@@ -38,6 +63,35 @@
       <section id='description'>
         <p>Minimal icon set ready to use in SVG & font format.</p>
         <strong>This project is at an early alpha stage. It is not recommended to use the icons in production environment yet.</strong>
+
+        <section class='columns'>
+          <article>
+            <h4>Getting started</h4>
+            <ul>
+              <li>Download the icons in your preferred format</li>
+              <li>Include the downloaded files in your document</li>
+              <li>See the icons below for more detailed instructions</li>
+            </ul>
+          </article>
+          <article>
+
+            <a class='btn' href='assets/icons.zip'>
+              <svg class='ico'><use href='#download' /></svg>
+              Separate SVG icon files
+            </a>
+
+            <a class='btn' href='icons.svg'>
+              <svg class='ico'><use href='#download' /></svg>
+              SVG symbols file
+            </a>
+
+            <a class='btn' href='assets/iconfont.zip'>
+              <svg class='ico fill'><use href='#download-filled' /></svg>
+              Webfont
+            </a>
+
+          </article>
+        </section>
       </section>
 
       <section id="menu">
@@ -104,6 +158,8 @@
     <link rel="import" href='views/svg.html' />
 
     <script src='icons.js'></script>
+    <script src="src/main.js"></script>
+
     <script src='models/IconCatalog.js'></script>
     <script src='views/OverlayView.js'></script>
     <script src="views/NavigationView.js"></script>

@@ -1,7 +1,11 @@
 
-// import * as ez from './dom'
+import IconCatalog from './models/IconCatalog'
+import OverlayView from './views/OverlayView'
 
-export default {
-  asd: 'basd',
-  // ezd: ez,
+const overlay = new OverlayView()
+const catalog = new IconCatalog()
+
+export {
+  overlay,
+  catalog
 }
