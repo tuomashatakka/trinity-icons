@@ -12,9 +12,9 @@
   <title>music-play-pause-outline</title>
   <g id="Layer_12_copy" data-name="Layer 12 copy">
     <g>
-      <polygon class="cls-1" points="30 60 200 160 30 260 30 60"/>
-      <rect class="cls-1" x="220" y="60" width="20" height="200"/>
-      <rect class="cls-1" x="260" y="60" width="20" height="200"/>
+      <polygon  points="30 60 200 160 30 260 30 60"/>
+      <rect  x="220" y="60" width="20" height="200"/>
+      <rect  x="260" y="60" width="20" height="200"/>
     </g>
   </g>
 </svg>

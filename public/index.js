@@ -3,8 +3,8 @@
 let include_index = 0
 
 const ACTION = {
-  search:  value => catalog.query(value.trim()),
-  variant: value => catalog.updateVariants(...value),
+  search:  value => main.catalog.query(value.trim()),
+  variant: value => main.catalog.updateVariants(...value),
   stroke:  () => updatePreviewStyles(),
   color:   () => updatePreviewStyles(),
   size:    () => updatePreviewStyles(),
@@ -119,9 +119,6 @@ let onObservableChange = function (namespace) {
 let toggleMenu = () => {
   document.querySelector('#menu').classList.toggle('open')
 }
-
-var overlay = new OverlayView()
-var catalog = new IconCatalog()
 
 observables.forEach(element => {
   let fields    = element.querySelectorAll('input')

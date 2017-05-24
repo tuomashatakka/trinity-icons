@@ -1,1 +1,8 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 320"><defs><style>.a{fill:none;stroke:#1a1a1a;stroke-linejoin:round;stroke-width:8px;}</style></defs><title>display</title><rect class="a" x="150" y="230" width="20" height="20"/><path class="a" d="M120,250h0Z"/><path class="a" d="M280,70V200H40V70ZM40,230H280V70H40Z"/></svg>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 320">
+  <title>display</title>
+  <g id="undo">
+    <rect x="30" y="80" width="260" height="173.3333" class="fill"/>
+    <rect x="149.1667" y="253.3333" width="21.6667" height="21.6667" class="fill"/>
+    <line x1="105.8333" y1="275" x2="214.1667" y2="275" class="outline"/>
+  </g>
+</svg>

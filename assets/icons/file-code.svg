@@ -1,1 +1,12 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 320"><defs><style>.a{fill:none;stroke:#1a1a1a;stroke-linejoin:round;stroke-width:8px;}</style></defs><title>file-code</title><path class="a" d="M80,40H190l50,50V270H80Zm110,0,10,60,40-10Z"/><polyline class="a" points="140 130 110 160 140 190"/><polyline class="a" points="170 190 200 160 170 130"/></svg>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 320">
+  <title>file-code</title>
+  <g id="undo">
+    <g>
+      <path d="M80,40H190l50,50V270H80Zm110,0,10,60,40-10Z" class="outline"/>
+      <g>
+        <polyline points="140 130 110 160 140 190" class="outline"/>
+        <polyline points="170 190 200 160 170 130" class="outline"/>
+      </g>
+    </g>
+  </g>
+</svg>

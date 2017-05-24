@@ -1,1 +1,7 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 320"><defs><style>.fill{fill:#333;}.fill,.outline{stroke:#333;stroke-linecap:round;stroke-linejoin:round;stroke-width:4px;}.outline{fill:none;}</style></defs><title>save-filled</title><path class="fill" d="M200,40H40V280H280V120ZM80,50H196.6987l39.6326,40v30H80ZM240,260H80V140H240Z"/><path class="outline" d="M100,170H220M100,200H220M100,230H200"/></svg>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 320">
+  <title>save-filled</title>
+  <g id="save">
+    <path d="M200,40H40V280H280V120ZM80,50H196.6987l39.6326,40v30H80ZM240,260H80V140H240Z" class="fill"/>
+    <path d="M100,170H220M100,200H220M100,230H200" class="outline"/>
+  </g>
+</svg>

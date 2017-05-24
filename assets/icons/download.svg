@@ -1,1 +1,6 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 320"><defs><style>.a{fill:none;stroke:#1a1a1a;stroke-linecap:round;stroke-linejoin:round;stroke-width:8px;}</style></defs><title>download</title><path class="a" d="M130,195H50L40,167.5M190,195h80l10-27.5M160,65V255l-30-30,30,30,30-30"/></svg>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 320">
+  <title>download</title>
+  <g id="undo">
+    <path d="M130,195H50L40,167.5M190,195h80l10-27.5M160,65V255l-30-30,30,30,30-30" class="outline"/>
+  </g>
+</svg>

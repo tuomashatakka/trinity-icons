@@ -1,1 +1,15 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 320"><defs><style>.a{fill:none;stroke:#1a1a1a;stroke-linejoin:round;stroke-width:8px;}</style></defs><title>file-text</title><path class="a" d="M80,40H190l50,50V270H80Zm110,0,10,60,40-10Z"/><line class="a" x1="110" y1="90" x2="170" y2="90"/><line class="a" x1="110" y1="120" x2="200" y2="120"/><line class="a" x1="110" y1="150" x2="140" y2="150"/><line class="a" x1="110" y1="180" x2="190" y2="180"/><line class="a" x1="110" y1="210" x2="160" y2="210"/></svg>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 320">
+  <title>file-text</title>
+  <g id="undo">
+    <g>
+      <path d="M80,40H190l50,50V270H80Zm110,0,10,60,40-10Z" class="outline"/>
+      <g>
+        <line x1="110" y1="90" x2="170" y2="90" class="outline"/>
+        <line x1="110" y1="120" x2="200" y2="120" class="outline"/>
+        <line x1="110" y1="150" x2="140" y2="150" class="outline"/>
+        <line x1="110" y1="180" x2="190" y2="180" class="outline"/>
+        <line x1="110" y1="210" x2="160" y2="210" class="outline"/>
+      </g>
+    </g>
+  </g>
+</svg>

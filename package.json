@@ -4,6 +4,7 @@
   "description": "Multi-purpose icon set containing outlined and filled variants of each icon.",
   "main": "src/index.js",
   "scripts": {
+    "import": "node ./bin/import-svg",
     "deploy": "node ./bin/deploy",
     "start": "node bin/serve",
     "test": "echo \"Error: no test specified\" && exit 1",
