@@ -9,9 +9,12 @@
 
 
 body {
-  font: 300 22px/1.675em Helvetica Neue, Roboto, Open Sans, Arial, sans-serif;
-  background:     @body-background;
-  padding-bottom: 100vh }
+  background: @body-background;
+  padding:    0 0 50vh;
+  font:       300 22px/1.675em @body-font }
+
+body > svg {
+  display: none }
 
 main {
   background: white }
@@ -26,91 +29,15 @@ main {
     line-height: 1.5em;
     font-size:   0.75em })}
 
-body > svg {
-  display: none }
-
 header {
-  height: 98vh;
+  height:     98vh;
+  position:   relative;
   background: @body-background;
-  position: relative;
-
+  svg.icon {  stroke-width: 3 }
   #flow { .flow() }}
 
-header svg.icon {
-  stroke-width: 2 }
-
-header nav {
-  display: none }
-// header nav {
-//   background-color: #f8f8f8;
-//   transition: .2s all;
-//   font-size: 0.6em;
-//   z-index:   2000;
-//   bottom:    0;
-//   position:  absolute;
-//   display:   flex;
-//   display:   none;
-//   padding:   1rem;
-//   width:     100%;
-//
-//   .fixed-header & {
-//     box-shadow: 0 1px 67px rgba(0,0,0,0.1);
-//     position:   fixed;
-//     top:    0;
-//     left:   0;
-//     right:  0;
-//     bottom: auto }
-//
-//   &::after {
-//     bottom: 0;
-//     height: 2px;
-//     left:   0;
-//     right:  0;
-//     content:    "";
-//     position:   absolute;
-//     background: @body-background }
-//
-//   > *:not(:last-child) {
-//     margin-right: 1rem }
-//
-//   > *:last-child {
-//     margin-right: 0 }
-//
-//   > * {
-//     flex: 1 1;
-//     text-decoration: none;
-//     box-sizing: border-box;
-//     cursor:     pointer;
-//     height: 3rem;
-//     font-weight: 400;
-//     line-height: 3rem;
-//     /*font-family: Gotham, Novecento Sans Wide, Montserrat, Raleway;
-//     text-transform: uppercase;
-//     font-weight: 300;*/
-//     display: block }
-//
-//   > .tri {
-//     font-size: 3rem;
-//     padding:   0;
-//     flex-grow: 0 }
-//
-//   input:focus {
-//     width: 67%;
-//     flex: 4 0 }}
-//
-// header a {
-//   flex: 1 1;
-//   padding: 0 1.5em;
-//   border-radius: 4em;
-//   background-color: #5669da;
-//   background-image: linear-gradient(120deg, transparent 33%, #ff3a88 133%);
-//   color: white;
-//   background-position: 0 0;
-//   text-align: center;
-//   transition: .3s all }
-
 #menu {
-  transition: .3s background;
+  transition: .3s background, .3s box-shadow;
   align-items: flex-end;
   background:  transparent;
   flex-flow:   column wrap;
@@ -119,9 +46,10 @@ header nav {
   z-index:     1000;
   right:       0;
   top:         0;
+  width:       24rem;
 
   > div {
-    transition: .3s all 0s, 0s width .3s;
+    transition: .5s opacity, .3s max-height, 0s width .3s;
     max-height: 0;
     opacity:    0;
     width:      0;
@@ -129,6 +57,7 @@ header nav {
     flex-flow:  column wrap }
 
   button {
+    background-image: none;
     line-height: 1em;
     padding:     1em;
     margin:      1em;
@@ -138,27 +67,20 @@ header nav {
     transform:   rotate(0deg) }
 
   .grp {
-    flex-wrap: wrap;
-  }
+    flex-wrap: wrap }
 
   &.open {
     background: @color-white;
     box-shadow: 0 0 3rem fade(black, 10%);
-    width: 24rem;
-
-    .phone ({
-      width: 90% });
 
     & ~ #icons {
-      margin-right: 24rem }
-
-    input[type="radio"] { .phone ({
-      padding: 0em 0.3em })}
+      margin-right: 24rem;
+      .phone ({ margin-right: 0 })}
 
     > div {
       width:      100%;
       opacity:    1;
-      transition: .3s all 0s, 0s width;
+      transition: .25s opacity, .5s max-height, 0s width 0s;
       max-height: 300px }
 
     button {
@@ -169,10 +91,11 @@ header nav {
   align-items: stretch;
   flex-flow:   row wrap;
   display:     flex;
+  transition: .3s margin-right;
   max-width:   80vw;
   padding:     4em 0;
   padding:     10vw 0;
-  margin:      0 auto;
+  margin:      0 0 0 auto;
 
   @media screen and (max-width: 1200px) {
     max-width: 100vw;
@@ -181,26 +104,3 @@ header nav {
   @media screen and (max-width: 800px) {
     font-size: 0.75em;
     padding:   0.5em }}
-
-
-// #preview {
-//   position: absolute;
-//   overflow: hidden;
-//   height:   8rem;
-//   width:    38%;
-//   right:    0;
-//   opacity:  1;
-//   z-index:  2050;
-//   transition-duration: .2s;
-//   transition-property: height, opacity, background-color, top;
-//   transition-timing-function: cubic-bezier(0.57, 0.15, 0, 0.88);
-//
-//   &.hidden {
-//     opacity: 0;
-//     height:  0 }
-//
-//   .fixed-header & {
-//     background: #f8f8f8;
-//     position: fixed;
-//     top: 5rem }
-// }

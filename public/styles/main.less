@@ -12,17 +12,19 @@ h1, h2, h3, h4, h5, h6 {
   letter-spacing: 0.1em }
 
 h1 {
-  top:   50%;
-  left:  50%;
-  color: white;
+  top:         50%;
+  left:        50%;
+  width:       100%;
+  font-weight: 100;
+  font-size:   4vw;
+  letter-spacing: 0.6em;
+  transform:   translate(-50%, -50%);
+  color:       white;
   position:    absolute;
   text-align:  center;
-  font-size:   1em;
-  font-weight: 100;
-  transform:   translate(-50%, -50%);
-  letter-spacing: 1em;
-  mix-blend-mode: screen;
-  text-shadow: 0.9em 0px 0px rgba(185, 234, 241, 0.3) }
+  text-shadow: 0.33em 0px 0px rgba(185, 234, 241, 0.15);
+  .phone({ letter-spacing: 0 });
+}
 
 h3 {
   // font-size:      0.5em;

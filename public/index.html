@@ -11,9 +11,7 @@
   <!-- <script src="https://jsconsole.com/js/remote.js?3fd1822e-2ecd-403b-a8da-dbaeaa775604"></script> -->
 
   <style>
-  /**
-   * This is the default style for embedded icons
-   */
+  /** This is the default style for embedded icons */
   .ico {
     stroke-miterlimit: 2;
     stroke-linejoin: round;
@@ -45,15 +43,16 @@
   };
   </script>
   <script src="assets/lib/less.min.js" type="text/javascript"></script>
-
   </head>
+
+
 
   <body>
 
     <header>
       <section id='flow'></section>
       <h1>
-        <svg class='icon'><use href='icons.svg#cat' /></svg>
+        <svg class='icon'><use href='icons.svg#hummingbird' /></svg>
         Tr1nity Icon Set
       </h1>
     </header>
@@ -99,9 +98,7 @@
         <button class='tri tri-arrow-left'></button>
 
         <div data-bind="preview">
-
           <h3>Preview & styling</h3>
-
           <label data-dispatch='preview.size' class="grp">
             <h4>Size</h4>
             <input type="radio" name="width" value="xsmall" />
@@ -111,43 +108,37 @@
             <input type="radio" name="width" value="huge" />
           </label>
 
+          <label data-dispatch='preview.stroke'>
+            <h4>Stroke</h4>
+            <input name="stroke-width" value=3 type="range" min=0 max=12></label>
+
           <label data-dispatch='preview.color'>
             <h4>Color</h4>
             <input name="color" value="#251f2e" type='color'>
           </label>
 
-          <label data-dispatch='preview.stroke'>
-            <h4>Stroke</h4>
-            <input name="stroke-width" value=3 type="range" min=0 max=12>
-          </label>
         </div>
-
-        <div>
-
+        <div data-dispatch='filter.variant'>
           <h3>Filter</h3>
 
-          <article data-dispatch='filter.variant'>
+          <label>
+            <h4>Regular</h4>
+            <input type='checkbox' name='variant' value='regular' checked='checked' /></label>
 
-            <label>
-              <h4>Regular</h4>
-              <input type='checkbox' name='variant' value='regular' checked='checked' /></label>
+          <label>
+            <h4>Outline</h4>
+            <input type='checkbox' name='variant' value='outline' checked='checked' /></label>
 
-            <label>
-              <h4>Outline</h4>
-              <input type='checkbox' name='variant' value='outline' checked='checked' /></label>
-
-            <label>
-              <h4>Filled</h4>
-              <input type='checkbox' name='variant' value='filled' checked='checked' /></label>
-          </article>
-
-          <h3>Search</h3>
-
-          <label data-dispatch='filter.search'>
-            <input type='search' name='search' placeholder='Type name tag or category' />
-          </label>
+          <label>
+            <h4>Filled</h4>
+            <input type='checkbox' name='variant' value='filled' checked='checked' /></label>
         </div>
+        <div data-dispatch='filter.search'>
+          <h3>Search</h3>
+          <label>
+            <input type='search' name='search' placeholder='Type name tag or category' /></label>
 
+        </div>
       </section>
 
 
@@ -159,11 +150,6 @@
 
     <script src='icons.js'></script>
     <script src="src/main.js"></script>
-
-    <script src='models/IconCatalog.js'></script>
-    <script src='views/OverlayView.js'></script>
-    <script src="views/NavigationView.js"></script>
-    <script src='index.js'></script>
 
     </main>
   </body>

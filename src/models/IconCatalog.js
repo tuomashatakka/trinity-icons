@@ -41,14 +41,14 @@ function appendTemplate ({ link, template, container, data }) {
   if (link)
     template = document.importNode(template.content, true)
 
-  template = template ? container.appendChild(template) : template
+  if (template)
+    template = container.appendChild(template)
 
   if (container.lastElementChild)
     for (let key of Object.keys(data))
       container.lastElementChild[key] = data[key]
   return container.lastElementChild
 }
-
 
 export default class IconCatalog {
 
@@ -136,3 +136,6 @@ export default class IconCatalog {
     return this.icons
   }
 }
+
+let _catalog
+export const catalog = () => _catalog || (_catalog = new IconCatalog())
