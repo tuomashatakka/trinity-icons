@@ -1,8 +1,16 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 320">
   <title>display</title>
-  <g id="undo">
-    <rect x="30" y="80" width="260" height="173.3333" class="fill"/>
-    <rect x="149.1667" y="253.3333" width="21.6667" height="21.6667" class="fill"/>
-    <line x1="105.8333" y1="275" x2="214.1667" y2="275" class="outline"/>
+  <g id="display">
+    <g>
+      <g>
+        <rect x="150" y="230" width="20" height="20" class="fill"/>
+        <path d="M280,70V200H40V70ZM40,230H280V70H40Z" class="fill"/>
+      </g>
+      <g>
+        <rect x="150" y="230" width="20" height="20" class="outline"/>
+        <path d="M120,250h0Z" class="outline"/>
+        <path d="M280,70V200H40V70ZM40,230H280V70H40Z" class="outline"/>
+      </g>
+    </g>
   </g>
 </svg>

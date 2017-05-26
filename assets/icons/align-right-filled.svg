@@ -1,1 +1,11 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 320"><defs><style>.a{fill:#1a1a1a;}.b{fill:none;stroke:#1a1a1a;stroke-miterlimit:2;stroke-width:4px;}</style></defs><title>align-right-filled</title><rect  x="50" y="80" width="220" height="12.3077"/><rect  x="110" y="129.2308" width="160" height="12.3077"/><rect  x="80" y="178.4615" width="190" height="12.3077"/><rect  x="230" y="227.6923" width="40" height="12.3077"/><rect  x="50" y="80" width="220" height="12.3077"/><rect  x="110" y="129.2308" width="160" height="12.3077"/><rect  x="80" y="178.4615" width="190" height="12.3077"/><rect  x="230" y="227.6923" width="40" height="12.3077"/></svg>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 320">
+  <title>align-right-filled</title>
+  <g id="alignment">
+    <g>
+      <rect x="50" y="80" width="220" height="12.3077" class="fill"/>
+      <rect x="110" y="129.2308" width="160" height="12.3077" class="fill"/>
+      <rect x="80" y="178.4615" width="190" height="12.3077" class="fill"/>
+      <rect x="230" y="227.6923" width="40" height="12.3077" class="fill"/>
+    </g>
+  </g>
+</svg>

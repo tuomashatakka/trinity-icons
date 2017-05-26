@@ -1504,26 +1504,25 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 
 var menu = document.querySelector('#menu');
 var observables = document.querySelectorAll('*[data-dispatch]');
-var menuToggle = menu.querySelector('.tri-arrow-left');
+var menuToggle = menu.querySelector('.menu-toggle');
 var toggleMenu = function toggleMenu() {
   return menu.classList.toggle('open');
 };
 
 function onObservableChange(namespace) {
-  var val = _dom.input.value(this);
-
   var _namespace = (0, _slicedToArray3.default)(namespace, 2),
       cat = _namespace[0],
       act = _namespace[1];
 
+  var val = _dom.input.value(this);
   var action = _constants.ACTION[act];
   action.call(this, val, cat);
 }
 
 function addListeners() {
   observables.forEach(function (element) {
-    var fields = element.querySelectorAll('input');
     var namespace = element.getAttribute('data-dispatch').split('.');
+    var fields = element.querySelectorAll('input');
     var handler = function handler() {
       onObservableChange.call(this, namespace);
     };

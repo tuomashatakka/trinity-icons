@@ -1,31 +1,6 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 320">
-  <defs>
-    <style>
-      .cls-1 {
-        fill: #1a1a1a;
-      }
-
-      .cls-2 {
-        fill: none;
-        stroke: #1a1a1a;
-        stroke-miterlimit: 2;
-        stroke-width: 4px;
-      }
-    </style>
-  </defs>
   <title>music-play-pause-filled</title>
   <g id="Layer_12_copy" data-name="Layer 12 copy">
-    <g>
-      <g>
-        <polygon  points="35 60 205 160 35 260 35 60"/>
-        <rect  x="225" y="60" width="20" height="200"/>
-        <rect  x="265" y="60" width="20" height="200"/>
-      </g>
-      <g>
-        <polygon  points="35 60 205 160 35 260 35 60"/>
-        <rect  x="225" y="60" width="20" height="200"/>
-        <rect  x="265" y="60" width="20" height="200"/>
-      </g>
-    </g>
+    <path d="M35,60,205,160,35,260Zm190,0V260h20V60Zm40,0V260h20V60Z" class="fill"/>
   </g>
 </svg>

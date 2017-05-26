@@ -7,20 +7,20 @@
   <title>file-text-filled</title>
   <g id="undo">
     <g>
-      <g style="clip-path: url(#clip-path)">
+      <g class="fill">
         <g>
-          <path d="M80,40H190l50,50V270H80Zm108,2,10,60,40-10Z" style="fill: #1a1a1a"/>
+          <path d="M80,40H190l50,50V270H80Zm108,2,10,60,40-10Z" class="fill"/>
           <path d="M80,40H190l50,50V270H80Zm108,2,10,60,40-10Z" class="outline"/>
         </g>
       </g>
-      <g style="clip-path: url(#clip-path)">
+      <g class="fill">
         <g>
           <path d="M80,40H190l50,50V270H80Zm108,2,10,60,40-10Z" class="fill"/>
           <path d="M80,40H190l50,50V270H80Zm108,2,10,60,40-10Z" class="fill"/>
           <path d="M80,40H190l50,50V270H80Zm108,2,10,60,40-10Z" class="fill"/>
         </g>
       </g>
-      <g style="clip-path: url(#clip-path)">
+      <g class="fill">
         <g>
           <path d="M80,40H190l50,50V270H80Zm108,2,10,60,40-10Z" class="outline"/>
           <path d="M80,40H190l50,50V270H80Zm108,2,10,60,40-10Z" class="outline"/>

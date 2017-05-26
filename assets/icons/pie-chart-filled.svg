@@ -1,1 +1,7 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 320"><defs><style>.a{fill:#1a1a1a;}.b{fill:none;stroke:#1a1a1a;stroke-miterlimit:2;stroke-width:4px;}</style></defs><title>pie-chart-filled</title><path  d="M253.0769,151.5385A101.5385,101.5385,0,1,0,151.5385,253.0769V151.5385Z"/><path  d="M270,168.4615H168.4615V270A101.5385,101.5385,0,0,0,270,168.4615Z"/><path  d="M253.0769,151.5385A101.5385,101.5385,0,1,0,151.5385,253.0769V151.5385Z"/><path  d="M270,168.4615H168.4615V270A101.5385,101.5385,0,0,0,270,168.4615Z"/></svg>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 320">
+  <title>pie-chart-filled</title>
+  <g id="pie-chart">
+    <path d="M253.0769,151.5385A101.5385,101.5385,0,1,0,151.5385,253.0769V151.5385Z" class="fill"/>
+    <path d="M270,168.4615H168.4615V270A101.5385,101.5385,0,0,0,270,168.4615Z" class="fill"/>
+  </g>
+</svg>

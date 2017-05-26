@@ -34,7 +34,7 @@ function wrapSymbol ({ name, content, viewBox }) {
    id='${slug(name, false)}'
    viewBox='${viewBox}'
    vector-effect="non-scaling-stroke">
-    ${content}
+    ${content.replace(/\s+id=[\"\'].*?[\"\']/gi, '')}
   </symbol>
 
   `

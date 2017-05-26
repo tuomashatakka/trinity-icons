@@ -1,1 +1,6 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 320"><defs><style>.a{fill:none;stroke:#1a1a1a;stroke-linecap:round;stroke-linejoin:round;stroke-width:8px;}</style></defs><title>cross-outline</title><path  d="M80,80,240,240M80,240,240,80"/></svg>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 320">
+  <title>cross-outline</title>
+  <g id="cross">
+    <path d="M217.5644,103.6023l-113.962,113.962m0-113.962,113.962,113.962" class="outline"/>
+  </g>
+</svg>

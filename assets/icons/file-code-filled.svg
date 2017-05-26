@@ -7,13 +7,13 @@
   <title>file-code-filled</title>
   <g id="undo">
     <g>
-      <g style="clip-path: url(#clip-path)">
-        <path d="M80,40H190l50,50V270H80Zm108,2,10,60,40-10Z" style="fill: #1a1a1a;stroke: #1a1a1a;stroke-miterlimit: 2;stroke-width: 4px"/>
-      </g>
-      <g style="clip-path: url(#clip-path)">
+      <g class="fill">
         <path d="M80,40H190l50,50V270H80Zm108,2,10,60,40-10Z" class="fill"/>
       </g>
-      <g style="clip-path: url(#clip-path)">
+      <g class="fill">
+        <path d="M80,40H190l50,50V270H80Zm108,2,10,60,40-10Z" class="fill"/>
+      </g>
+      <g class="fill">
         <path d="M80,40H190l50,50V270H80Zm108,2,10,60,40-10Z" class="outline"/>
       </g>
     </g>

@@ -1,1 +1,10 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 320"><defs><style>.a{fill:none;stroke:#1a1a1a;stroke-miterlimit:2;stroke-width:4px;}</style></defs><title>display-outline</title><rect  x="150" y="230" width="20" height="20"/><path  d="M120,250h0Z"/><path  d="M280,70V200H40V70ZM40,230H280V70H40Z"/></svg>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 320">
+  <title>display-outline</title>
+  <g id="display">
+    <g>
+      <rect x="150" y="230" width="20" height="20" class="outline"/>
+      <path d="M120,250h0Z" class="outline"/>
+      <path d="M280,70V200H40V70ZM40,230H280V70H40Z" class="outline"/>
+    </g>
+  </g>
+</svg>

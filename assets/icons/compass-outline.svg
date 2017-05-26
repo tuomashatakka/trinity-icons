@@ -1,1 +1,7 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 320"><defs><style>.Graphic-Style-65{fill:#1a1a1a;stroke-miterlimit:2;}.Graphic-Style-65,.a{stroke:#1a1a1a;stroke-width:4px;}.a{fill:none;stroke-linecap:round;stroke-linejoin:round;}</style></defs><title>compass-outline</title><polygon  points="123.333 141.667 105 251.667 196.667 178.333 160 160 123.333 141.667"/><path  d="M270,160A110,110,0,1,1,160,50,110,110,0,0,1,270,160Zm-110,0,36.6667,18.3333L215,68.3333l-91.6667,73.3333Z"/><polygon  points="123.333 141.667 105 251.667 196.667 178.333 160 160 123.333 141.667"/></svg>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 320">
+  <title>compass-outline</title>
+  <g id="compass">
+    <path d="M270,160A110,110,0,1,1,160,50,110,110,0,0,1,270,160Zm-110,0,36.6667,18.3333L215,68.3333l-91.6667,73.3333Z" class="outline"/>
+    <polygon points="123.333 141.667 105 251.667 196.667 178.333 160 160 123.333 141.667" class="outline"/>
+  </g>
+</svg>

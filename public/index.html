@@ -26,10 +26,11 @@
     width:   1.2em }
 
   .ico.large {
-    width: 4em }
+    width:  2em;
+    height: 2em;
+    stroke-width: 8 }
 
   svg .fill {
-    stroke-width: 8;
     fill: currentColor }
 
   </style>
@@ -75,17 +76,17 @@
           <article>
 
             <a class='btn' href='assets/icons.zip'>
-              <svg class='ico'><use href='#download' /></svg>
+              <svg class='ico large'><use href='#download' /></svg>
               Separate SVG icon files
             </a>
 
             <a class='btn' href='icons.svg'>
-              <svg class='ico'><use href='#download' /></svg>
+              <svg class='ico large'><use href='#download' /></svg>
               SVG symbols file
             </a>
 
             <a class='btn' href='assets/iconfont.zip'>
-              <svg class='ico fill'><use href='#download-filled' /></svg>
+              <svg class='ico large'><use href='#download' /></svg>
               Webfont
             </a>
 
@@ -94,7 +95,7 @@
       </section>
 
       <section id="menu">
-        <button class='tri tri-arrow-left'></button>
+        <button class='tri tri-hamburger-menu menu-toggle'></button>
 
         <div data-dispatch='filter.search'>
           <h3>Search</h3>

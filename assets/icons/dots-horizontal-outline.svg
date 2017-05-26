@@ -1,1 +1,8 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 320"><defs><style>.a{fill:none;stroke:#1a1a1a;stroke-miterlimit:2;stroke-width:4px;}</style></defs><title>dots-horizontal-outline</title><circle  cx="71.818" cy="160" r="33.0681"/><circle  cx="160.0001" cy="160" r="33.0681"/><circle  cx="248.1822" cy="160" r="33.0681"/></svg>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 320">
+  <title>dots-horizontal-outline</title>
+  <g id="dots-horizontal">
+    <circle cx="71.818" cy="160" r="33.0681" class="outline"/>
+    <circle cx="160.0001" cy="160" r="33.0681" class="outline"/>
+    <circle cx="248.1822" cy="160" r="33.0681" class="outline"/>
+  </g>
+</svg>

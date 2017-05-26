@@ -1,16 +1,7 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 320">
-  <defs>
-    <style>
-      .Graphic-Style-39 {
-        fill: none;
-        stroke: #1a1a1a;
-        stroke-linejoin: round;
-        stroke-width: 8px;
-      }
-    </style>
-  </defs>
   <title>note</title>
   <g id="Layer_15" data-name="Layer 15">
-    <path  d="M50,290V70H180L280,220v70ZM160,150l120,70L180,70Z"/>
+    <polygon points="50 290 50 70 180 70 280 220 280 290 50 290" class="outline"/>
+    <polygon points="160 150 280 220 180 70 160 150" class="fill"/>
   </g>
 </svg>
