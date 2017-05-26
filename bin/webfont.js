@@ -11,13 +11,11 @@ function generateArchive (name, src) {
   let archive = archiver('zip', {
       zlib: { level: 9 } // Sets the compression level.
   })
-  output.on('close', function() {
-    console.log(archive.pointer() + ' total bytes');
-    console.log('archiver has been finalized and the output file descriptor has closed.');
+  output.on('close', () => {
+    console.log('Archive size ' + archive.pointer() + ' bytes');
+    console.log('Archiver file descriptor has closed.');
   })
-  archive.on('error', function(err) {
-    throw err;
-  })
+  archive.on('error', err => { throw err })
   archive.pipe(output)
   archive.directory(src)
   archive.finalize()

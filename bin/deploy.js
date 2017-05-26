@@ -1,14 +1,16 @@
 const { mkdirSync, existsSync } = require('fs')
 const { ncp } = require('ncp')
 const { join } = require("path")
-const { generateIconFont } = require("./webfont")
+const { generateIconFont, generateArchive } = require("./webfont")
 const { readAll, generateJSON } = require('./svg')
-
-const { BASE_PATH, ASSETS_PATH, PUBLIC_PATH, LIB_PATH } = require('./utils')
+const { BASE_PATH, ASSETS_PATH, PUBLIC_PATH } = require('./utils')
 const PUBLIC_ASSETS_PATH = join(PUBLIC_PATH, 'assets')
 
 if (!existsSync(PUBLIC_ASSETS_PATH))
   mkdirSync(PUBLIC_ASSETS_PATH)
+
+generateArchive('assets/icons', 'assets/icons')
+generateIconFont()
 
 readAll({
   src: BASE_PATH,
@@ -18,7 +20,6 @@ generateJSON({
   src: BASE_PATH,
   dst: 'public/icons.js' })
 
-generateIconFont()
 
 ncp(ASSETS_PATH, PUBLIC_ASSETS_PATH, err => {
   if (err) throw new Error('Assets directory could not be copied;', err) })

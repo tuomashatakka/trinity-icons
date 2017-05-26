@@ -94,15 +94,14 @@
       </section>
 
       <section id="menu">
-
         <button class='tri tri-arrow-left'></button>
 
         <div data-dispatch='filter.search'>
           <h3>Search</h3>
           <label>
             <input type='search' name='search' placeholder='Type name tag or category' /></label>
-
         </div>
+
         <div data-bind="preview">
           <h3>Preview & styling</h3>
           <label data-dispatch='preview.size' class="grp">
@@ -112,27 +111,22 @@
             <input type="radio" name="width" value="medium" />
             <input type="radio" name="width" value="large" />
             <input type="radio" name="width" value="huge" /></label>
-
           <label data-dispatch='preview.stroke'>
             <h4>Stroke</h4>
             <input type="range" name="stroke-width" value=3 min=0 max=12 /></label>
-
           <label data-dispatch='preview.color'>
             <h4>Color</h4>
             <input type='color' name="color" value="#251f2e" /></label>
-
         </div>
+
         <div data-dispatch='filter.variant'>
           <h3>Filter</h3>
-
           <label>
             <h4>Regular</h4>
             <input type='checkbox' name='variant' value='regular' checked='checked' /></label>
-
           <label>
             <h4>Outline</h4>
             <input type='checkbox' name='variant' value='outline' /></label>
-
           <label>
             <h4>Filled</h4>
             <input type='checkbox' name='variant' value='filled' /></label>
