@@ -1,4 +1,7 @@
 
+const HIDE_DELAY = 300
+let loader, _overlay
+
 function constructOverlayElement (target) {
 
   let element = document.createElement('section')
@@ -19,7 +22,6 @@ function constructOverlayElement (target) {
   return target.appendChild(element)
 }
 
-let loader
 function showLoader (msg) {
   loader = loader || document.createElement('div')
   loader.innerHTML = msg ? msg : ''
@@ -55,16 +57,13 @@ export default class OverlayView {
   }
 
   toggleLoader (show=null) {
-
     this.element.classList.toggle('loading', show)
-
     if (this.element.classList.contains('loading')) {
       this.contentElement.remove()
       this.element.appendChild(showLoader('loading'))
     }
-    else {
+    else
       hideLoader()
-    }
   }
 
   set content (html) {
@@ -103,7 +102,9 @@ export default class OverlayView {
 
   hide () {
     this.element.classList.remove('open')
-    this.content = ''
+    setTimeout(() => (this.content = ''), HIDE_DELAY)
   }
 
 }
+
+export const overlay = () => _overlay || (_overlay = new OverlayView())

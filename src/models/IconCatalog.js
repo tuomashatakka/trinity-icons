@@ -54,13 +54,15 @@ export default class IconCatalog {
 
   constructor (provider=defaultIconProvider) {
 
-    this.displayedVariants = ['outline', 'regular', 'filled']
+    this.displayedVariants = ['regular']
     this.activeFilters = [ FILTER.VARIANT, FILTER.QUERY, ]
     this.queryTerm = ''
     this.container = document.querySelector('#icons')
     this._icons =
       typeof provider.get === 'function' ?
       [...provider.get()] : []
+
+    this.updateVariants(...this.displayedVariants)
   }
 
   getAllIcons () {

@@ -1,10 +1,9 @@
 
-import OverlayView from './views/OverlayView'
+import { overlay } from './views/OverlayView'
 import { catalog } from './models/IconCatalog'
 import { input } from './dom'
 import { ACTION } from './constants'
 
-const overlay     = new OverlayView()
 const menu        = document.querySelector('#menu')
 const observables = document.querySelectorAll('*[data-dispatch]')
 const menuToggle  = menu.querySelector('.tri-arrow-left')
@@ -14,7 +13,6 @@ function onObservableChange (namespace) {
   let val = input.value(this)
   let [ cat, act ] = namespace
   let action = ACTION[act]
-  // if (typeof action === 'function')
   action.call(this, val, cat)
 }
 
@@ -32,6 +30,7 @@ function addListeners () {
 }
 
 addListeners()
+overlay()
 catalog()
 
 export {

@@ -110,10 +110,7 @@ class IconElement extends HTMLElement {
   }
 
   open () {
-    if (!window.overlay)
-      window.overlay = main.overlay
-
-    overlay.show(descriptionForItem(this))
+    main.overlay().show(descriptionForItem(this))
   }
 
 }

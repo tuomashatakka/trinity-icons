@@ -771,11 +771,13 @@ var IconCatalog = function () {
     (0, _classCallCheck3.default)(this, IconCatalog);
 
 
-    this.displayedVariants = ['outline', 'regular', 'filled'];
+    this.displayedVariants = ['regular'];
     this.activeFilters = [FILTER.VARIANT, FILTER.QUERY];
     this.queryTerm = '';
     this.container = document.querySelector('#icons');
     this._icons = typeof provider.get === 'function' ? [].concat((0, _toConsumableArray3.default)(provider.get())) : [];
+
+    this.updateVariants.apply(this, (0, _toConsumableArray3.default)(this.displayedVariants));
   }
 
   (0, _createClass3.default)(IconCatalog, [{
@@ -1282,6 +1284,7 @@ for(var collections = ['NodeList', 'DOMTokenList', 'MediaList', 'StyleSheetList'
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
+exports.overlay = undefined;
 
 var _classCallCheck2 = __webpack_require__(28);
 
@@ -1292,6 +1295,10 @@ var _createClass2 = __webpack_require__(29);
 var _createClass3 = _interopRequireDefault(_createClass2);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+var HIDE_DELAY = 300;
+var loader = void 0,
+    _overlay = void 0;
 
 function constructOverlayElement(target) {
 
@@ -1313,7 +1320,6 @@ function constructOverlayElement(target) {
   return target.appendChild(element);
 }
 
-var loader = void 0;
 function showLoader(msg) {
   loader = loader || document.createElement('div');
   loader.innerHTML = msg ? msg : '';
@@ -1345,15 +1351,11 @@ var OverlayView = function () {
     value: function toggleLoader() {
       var show = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : null;
 
-
       this.element.classList.toggle('loading', show);
-
       if (this.element.classList.contains('loading')) {
         this.contentElement.remove();
         this.element.appendChild(showLoader('loading'));
-      } else {
-        hideLoader();
-      }
+      } else hideLoader();
     }
   }, {
     key: 'show',
@@ -1364,8 +1366,12 @@ var OverlayView = function () {
   }, {
     key: 'hide',
     value: function hide() {
+      var _this2 = this;
+
       this.element.classList.remove('open');
-      this.content = '';
+      setTimeout(function () {
+        return _this2.content = '';
+      }, HIDE_DELAY);
     }
   }, {
     key: 'contentElement',
@@ -1380,12 +1386,12 @@ var OverlayView = function () {
   }, {
     key: 'content',
     set: function set(html) {
-      var _this2 = this;
+      var _this3 = this;
 
       var set = function set(data) {
-        _this2.toggleLoader(false);
+        _this3.toggleLoader(false);
 
-        var content = _this2.contentElement;
+        var content = _this3.contentElement;
         if (typeof data === 'string') content.innerHTML = data;else content.appendChild(data);
       };
 
@@ -1409,6 +1415,9 @@ var OverlayView = function () {
 }();
 
 exports.default = OverlayView;
+var overlay = exports.overlay = function overlay() {
+  return _overlay || (_overlay = new OverlayView());
+};
 
 /***/ }),
 /* 46 */
@@ -1485,8 +1494,6 @@ var _slicedToArray3 = _interopRequireDefault(_slicedToArray2);
 
 var _OverlayView = __webpack_require__(45);
 
-var _OverlayView2 = _interopRequireDefault(_OverlayView);
-
 var _IconCatalog = __webpack_require__(24);
 
 var _dom = __webpack_require__(23);
@@ -1495,7 +1502,6 @@ var _constants = __webpack_require__(22);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-var overlay = new _OverlayView2.default();
 var menu = document.querySelector('#menu');
 var observables = document.querySelectorAll('*[data-dispatch]');
 var menuToggle = menu.querySelector('.tri-arrow-left');
@@ -1511,7 +1517,6 @@ function onObservableChange(namespace) {
       act = _namespace[1];
 
   var action = _constants.ACTION[act];
-  // if (typeof action === 'function')
   action.call(this, val, cat);
 }
 
@@ -1531,9 +1536,10 @@ function addListeners() {
 }
 
 addListeners();
+(0, _OverlayView.overlay)();
 (0, _IconCatalog.catalog)();
 
-exports.overlay = overlay;
+exports.overlay = _OverlayView.overlay;
 exports.catalog = _IconCatalog.catalog;
 
 /***/ }),
