@@ -1,5 +1,5 @@
-const { readFileSync, readdirSync, createWriteStream } = require("fs")
-const { resolve, basename } = require("path")
+const { readFileSync, readdirSync, createWriteStream, stat, writeFile } = require("fs")
+const { resolve, basename, dirname } = require("path")
 const { slug, BASE_PATH, PUBLIC_PATH, getHTMLFragments } = require('./utils')
 
 function getSVGFiles (dir) {
@@ -9,8 +9,8 @@ function getSVGFiles (dir) {
 }
 
 function readSVG (fullpath) {
-  let path = resolve(fullpath)
-  let name = basename(path)
+  let path    = resolve(fullpath)
+  let name    = basename(path)
   let content = ''
   let viewBox = [0, 0, 128, 128]
   try {
@@ -23,31 +23,78 @@ function readSVG (fullpath) {
       viewBox = val // .trim().split(/\s+/).map(n => parseInt(n))
     })
     content   = content.substr(start, end - start)
-
-    return wrapSymbol({ name, content, viewBox })
+    content   = wrapSymbol({ name, content, viewBox })
   }
+  return content
+}
+
+function cleanup (content) {
+  content = content.replace(/[\s\-]+(\w)/gi, (_, char) => ' ' + char.toUpperCase())
+  content = content.replace(/\s+filled|\s+outline/gi, '')
+  return content[0].toUpperCase() + content.substr(1)
+}
+
+function resolveVariant (name) {
+  return name.search('-filled')  > -1 ? 'filled' :
+         name.search('-outline') > -1 ? 'outline' :
+         'regular'
+}
+
+function getStats ({ path, format='json' }) {
+  let title = basename(path).split('.')[0]
+
+  return new Promise(accept => {
+    stat(resolve(path), (err, stats) => {
+      if (err)
+        throw new Error("Invalid stat read in", path)
+      let name = title
+      let variant = resolveVariant(name)
+      let displayName = cleanup(title)
+      let date = stats.ctime
+
+      stats = { path, name, displayName, date, variant, }
+
+      if (format === 'utf8')
+        accept(JSON.stringify(stats, null, 2))
+
+      else if (format === 'json')
+        accept(stats)
+    })
+  })
 }
 
 function wrapSymbol ({ name, content, viewBox }) {
   return `
-  <symbol
-   id='${slug(name, false)}'
-   viewBox='${viewBox}'
-   vector-effect="non-scaling-stroke">
-    ${content.replace(/\s+id=[\"\'].*?[\"\']/gi, '')}
-  </symbol>
-
-  `
+<symbol id='${slug(name, false)}' viewBox='${viewBox}'>
+  ${content.replace(/\s+id=[\"\'].*?[\"\']/gi, '')}
+</symbol>
+`
 }
 
 function readAll ({ src, dst }) {
 
-  let stream = createWriteStream(dst)
-  let files  = getSVGFiles(src)
+  let statsIter  = 0
+  let statStream = createWriteStream(resolve(dirname(dst), 'icon_stats.json'))
+  let stream     = createWriteStream(dst)
+  let files      = getSVGFiles(src)
 
   stream.write(`<svg xmlns="http://www.w3.org/2000/svg">\n`)
-  for (let file of files)
-    stream.write(readSVG(resolve(src + '/' + file)))
+  statStream.write(`{\n`)
+
+  for (let file of files) {
+    let path = resolve(src + '/' + file)
+
+    stream.write(readSVG(path))
+    getStats({ path, format: 'utf8' })
+    .then(stats => {
+
+      statStream.write(`"${file.split('.')[0]}": ${stats}`)
+      if (++statsIter >= files.length) {
+        statStream.write(`\n}\n`)
+        statStream.end() }
+      else statStream.write(`,\n`)
+    })
+  }
   stream.write(`</svg>\n`)
   stream.end()
 }
@@ -89,7 +136,6 @@ function generateJSON({ src, dst }) {
   writeArray(stream, 'icons_flattened', flatten)
   stream.end()
 }
-
 
 module.exports = {
   getSVGFiles,

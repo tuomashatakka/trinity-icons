@@ -2,14 +2,13 @@ const { readAll, generateJSON } = require('./svg')
 const { BASE_PATH } = require('./utils')
 
 let src = process.argv[2] || BASE_PATH
-console.log("src", src)
 
 readAll({
   src,
   dst: 'public/icons.svg'
 })
 
-generateJSON({
-  src,
-  dst: 'public/icons.js'
-})
+// generateJSON({
+//   src,
+//   dst: 'public/icons.js'
+// })
