@@ -34,7 +34,7 @@ function observeScroll (fnc) {
 
 const ICON_SIZES = ['xsmall', 'small', 'medium', 'large', 'huge']
 
-class NavigationView {
+export default class NavigationView {
   constructor () {
     this.iconSize = 'medium'
   }

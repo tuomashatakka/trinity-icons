@@ -23,7 +23,7 @@
 .columns {
   display: flex;
   flex-flow: row wrap;
-  padding: 2em 25vw 0;
+  padding: 2em 10vw 0;
 
   > article {
     text-align: left;
@@ -200,3 +200,32 @@
     font-size:  2em;
     right:      0.5em;
     top:        0.5em }}
+
+
+.notifications {
+  position: fixed;
+  top: 0;
+  left: 0;
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: flex-start;
+  align-items: center;
+
+  article {
+    font-size: 0.75em;
+    font-weight: 400;
+    width: 16rem;
+    background: darken(@color-highlight, 8%);
+    color: @color-white;
+    margin: 1px 0 0 1px;
+    padding: 1em 0.5em;
+    opacity: 1;
+    box-shadow: 0 0 4px fade(black, 10%);
+    border-radius: 4px;
+    transition: .5s opacity;
+  }
+
+  article.fade {
+    opacity: 0;
+  }
+}

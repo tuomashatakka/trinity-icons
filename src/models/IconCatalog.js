@@ -1,68 +1,74 @@
 
-const defaultIconProvider = {
-  get: () => [...window.icons].map(iconTemplate)
+import { setPreviewStyle, loadStyle, save, load, appendTemplate, notify } from '../utils'
+import include from './Loader'
+
+let _catalog
+
+export const defaultIconProvider = {
+
+  get: function () {
+    let { container } = this
+
+    return new Promise(resolve => {
+
+      include('icons.svg')
+      .then(resp => {
+
+        let symbols = [...resp.children]
+        let icons   = symbols
+          .filter(sym => !sym.getAttribute('id').startsWith('flat-'))
+          .map(sym    => symbolToIconElement(sym, container))
+
+        resolve(icons)
+        return icons
+      })})},
 }
 
-var FILTER = {
+export const FILTER = {
   OUTLINE: item => item.variant === 'outline',
   DEFAULT: item => item.variant === 'regular',
   FILLED: item => item.variant === 'filled',
 
-  VARIANT: function (item) { return (this.displayedVariants.indexOf(item.variant) > -1) },
+  VARIANT: function (item) {
+    return (this.displayedVariants.indexOf(item.variant) > -1)
+  },
   QUERY: function (item) {
     let term = this.queryTerm
     return !term || (typeof item === 'string' ?
       item.search(term) > -1 : item.title ? item.title.search(term) > -1 :
-      Object.keys(item).reduce((sum, itr) => sum || itr.search(term) > -1, false))
+      Object.keys(item).reduce((sum, itr) => sum || itr.search(term) > -1, false)
+    )
   }
 }
 
-function iconTemplate (title) {
-  let template
-  let name      = 'icon'
-  let link      = document.querySelector(`link[rel="import"][href*="${name}.html"]`)
-
-  if (link)
-    template    = link.import.querySelector(`template[data-name="${name}"]`)
-  else
-    template    = document.querySelector(`template[data-name="${name}"]`)
-  let container = document.querySelector('#icons')
-  let icon      = title
-  let code      = '\\' + title
-  let data      = { title, icon, code }
-
-  return appendTemplate({ link, template, container, data })
-}
-
-
-function appendTemplate ({ link, template, container, data }) {
-  container = container || document.body
-
-  if (link)
-    template = document.importNode(template.content, true)
-
-  if (template)
-    template = container.appendChild(template)
-
-  if (container.lastElementChild)
-    for (let key of Object.keys(data))
-      container.lastElementChild[key] = data[key]
-  return container.lastElementChild
-}
 
 export default class IconCatalog {
 
   constructor (provider=defaultIconProvider) {
+    let variants = load('filters').variants || [ 'regular' ]
 
-    this.displayedVariants = ['regular']
-    this.activeFilters = [ FILTER.VARIANT, FILTER.QUERY, ]
-    this.queryTerm = ''
-    this.container = document.querySelector('#icons')
-    this._icons =
-      typeof provider.get === 'function' ?
-      [...provider.get()] : []
+    this._icons            = []
+    this.activeFilters     = [ FILTER.VARIANT, FILTER.QUERY, ]
+    this.displayedVariants = variants
+    this.queryTerm         = ''
+    this.container         = document.querySelector('#icons')
 
-    this.updateVariants(...this.displayedVariants)
+    if (typeof provider.get === 'function') {
+      let provide = provider.get.call(this)
+
+      if (provide.constructor.name === 'Promise')
+        provide.then(content => {
+          this._icons = content
+          this.updateVariants(...variants)
+          setPreviewStyle(loadStyle())
+        })
+      else {
+        this._icons = provide
+        this.updateVariants(...variants)
+        setPreviewStyle(loadStyle())
+      }
+    }
+
   }
 
   getAllIcons () {
@@ -101,29 +107,22 @@ export default class IconCatalog {
     return this.filter(...this.activeFilters)
   }
 
-  toggleVariant (style) {
-    this.toggleFilter(style, 'variant')
-  }
-
   updateVariants (...variants) {
     this.displayedVariants = variants
+    save('filters', { variants })
     this.update(true)
     return this.filter(...this.activeFilters)
   }
 
-  toggleFilter (filter, group=null) {
+  toggleFilter (filter) {
 
-    let arr = {
-      get: () => (group === 'variant') ? this.displayedVariants : this.activeFilters,
-      add: item => (group === 'variant') ? this.displayedVariants.push(item) : this.activeFilters.push(item),
-      remove: index => (group === 'variant') ? this.displayedVariants.splice(index, 1) : this.activeFilters.splice(index, 1),
-    }
-    let index = arr.get().findIndex(item => item.name ? item.name == filter.name : item == filter)
+    let index = this.activeFilters.findIndex(item => item.name ? item.name == filter.name : item == filter)
+
     if (index > -1)
-      arr.remove(index)
+      this.activeFilters.splice(index, 1)
     else {
-      arr.add(filter)
-      this.filter(...this.activeFilters)
+      this.activeFilters.push(filter)
+      // this.filter(...this.activeFilters)
       this.update(true)
     }
 
@@ -137,7 +136,23 @@ export default class IconCatalog {
     )
     return this.icons
   }
+
+  orderBy (term) {
+    notify('sorting icons', term)
+  }
 }
 
-let _catalog
+
 export const catalog = () => _catalog || (_catalog = new IconCatalog())
+
+
+function symbolToIconElement (symbol, container) {
+
+  let template  = 'icon'
+  let title     = symbol.getAttribute('id')
+  let icon      = title
+  let code      = '\\U911'
+  let data      = { title, icon, code }
+
+  return appendTemplate({ template, container, data })
+}

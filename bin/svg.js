@@ -41,15 +41,13 @@ function wrapSymbol ({ name, content, viewBox }) {
 }
 
 function readAll ({ src, dst }) {
+
   let stream = createWriteStream(dst)
   let files  = getSVGFiles(src)
-  console.log(src, files) // FIXME: Remove
-
 
   stream.write(`<svg xmlns="http://www.w3.org/2000/svg">\n`)
-  for (let file of files) {
+  for (let file of files)
     stream.write(readSVG(resolve(src + '/' + file)))
-  }
   stream.write(`</svg>\n`)
   stream.end()
 }
@@ -62,15 +60,15 @@ function appendToHTML ({ src, dst }) {
 
   stream.write(before)
   stream.write(`<svg xmlns="http://www.w3.org/2000/svg">\n`)
-  for (let file of files) {
+  for (let file of files)
     stream.write(readSVG(file))
-  }
   stream.write(`</svg>\n`)
   stream.write(after)
   stream.end()
 }
 
 function writeArray (stream, name, items) {
+
   stream.write(`var ${name} = [\n`)
   for (let item of items) {
     let comma    = item == items[items.length - 1] ? '' : ', '
@@ -89,7 +87,6 @@ function generateJSON({ src, dst }) {
 
   writeArray(stream, 'icons', regular)
   writeArray(stream, 'icons_flattened', flatten)
-
   stream.end()
 }
 

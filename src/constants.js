@@ -6,6 +6,7 @@ export const INPUT_TYPE_CHECKBOX = 'checkbox'
 export const INPUT_TYPE_RADIO    = 'radio'
 
 export const ACTION = {
+  sort:    value => catalog().orderBy(value.replace(/'\s+'/g, '-').toLowerCase()),
   search:  value => catalog().query(value.trim()),
   variant: value => catalog().updateVariants(...value),
   stroke:  () => updatePreviewStyles(),
@@ -26,3 +27,9 @@ export const SIZE_FACTOR = {
   large:  4,
   huge:   2,
 }
+
+export const ICON_VARIANTS = [
+  'default',
+  'outline',
+  'filled',
+]

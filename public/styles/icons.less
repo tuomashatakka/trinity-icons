@@ -20,6 +20,25 @@
   }
 }
 
+/** This is the default style for embedded icons */
+.ico {
+  stroke-miterlimit: 2;
+  stroke-linejoin: round;
+  stroke-linecap:  round;
+  stroke-width:    1;
+  stroke:          currentColor;
+  fill:            transparent;
+
+  vertical-align: middle;
+  display: inline-block;
+  height:  1.2em;
+  width:   1.2em }
+
+.ico.large {
+  width:  2em;
+  height: 2em;
+  stroke-width: 1 }
+
 icon-entry {
   user-select: none;
   text-align:  center;
@@ -75,16 +94,28 @@ svg.icon {
   margin:  0 auto;
   // height:  100%;
 
-  .stroke('xsmall',  14,  24px);
-  .stroke('small',   10,  48px);
-  .stroke('medium',  7,   80px);
-  .stroke('large',   3.5, 160px);
-  .stroke('huge',    2,   320px);
+  // .stroke('xsmall',  14,  24px);
+  // .stroke('small',   10,  48px);
+  // .stroke('medium',  7,   80px);
+  // .stroke('large',   3.5, 160px);
+  // .stroke('huge',    2,   320px);
 
-  &.style-filled {
-    fill: currentColor }
+  // &.style-filled {
+  //   fill: currentColor }
 
 }
+
+svg * {
+  vector-effect: non-scaling-stroke }
+
+svg .outline {
+  stroke: currentColor }
+
+svg .fill {
+  fill: transparent }
+
+[id*='-filled'] .fill {
+  fill: currentColor }
 
 /* fill: #e4225d; */
 //

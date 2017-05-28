@@ -36,7 +36,7 @@ export function assertElement (elem) {
 }
 
 
-export function createElement (elem, create=true) {
+export function createElement (elem='div', create=true) {
 
   if (typeof elem === 'string')
     return document.createElement(elem)

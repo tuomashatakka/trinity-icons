@@ -13,7 +13,7 @@ body {
   padding:    0 0 50vh;
   font:       300 22px/1.675em @body-font }
 
-body > svg {
+div[data-import] {
   display: none }
 
 main {
@@ -49,7 +49,7 @@ header {
   top:         0;
   width:       24rem;
 
-  > div {
+  article {
     transition: .5s opacity, .3s max-height, 0s width .3s;
     max-height: 0;
     opacity:    0;
@@ -79,7 +79,7 @@ header {
       margin-right: 24rem;
       .phone ({ margin-right: 0 })}
 
-    > div {
+    article {
       width:      100%;
       opacity:    1;
       transition: .25s opacity, .5s max-height, 0s width 0s;
@@ -94,10 +94,10 @@ header {
   flex-flow:   row wrap;
   display:     flex;
   transition: .3s margin-right;
-  max-width:   80vw;
+  max-width:   90vw;
   padding:     4em 0;
-  padding:     10vw 0;
-  margin:      0 0 0 auto;
+  padding:     10vw 0 10vw 10vw;
+  margin:      0;
 
   @media screen and (max-width: 1200px) {
     max-width: 100vw;
