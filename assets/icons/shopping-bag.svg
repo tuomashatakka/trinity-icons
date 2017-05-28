@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 320">
+  <title>shopping-bag</title>
+  <g id="bell">
+    <polygon points="67.368 107.895 55.789 215.965 264.211 215.965 252.632 107.895 67.368 107.895" class="fill"/>
+    <path d="M110,96.3158C110,50,120,50,160,50s50,0,50,46.3158" class="outline"/>
+    <polygon points="54.632 226.772 50 270 270 270 265.368 226.772 54.632 226.772" class="fill"/>
+  </g>
+</svg>

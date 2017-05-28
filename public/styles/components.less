@@ -203,26 +203,26 @@
 
 
 .notifications {
-  position: fixed;
-  top: 0;
-  left: 0;
-  display: flex;
-  flex-flow: column nowrap;
   justify-content: flex-start;
+  flex-flow:   column nowrap;
   align-items: center;
+  position:    fixed;
+  display:     flex;
+  top:         0;
+  left:        0;
 
   article {
-    font-size: 0.75em;
-    font-weight: 400;
-    width: 16rem;
-    background: darken(@color-highlight, 8%);
-    color: @color-white;
-    margin: 1px 0 0 1px;
-    padding: 1em 0.5em;
-    opacity: 1;
-    box-shadow: 0 0 4px fade(black, 10%);
-    border-radius: 4px;
+    font-size:   0.6em;
+    font-weight: 500;
+    width:       16rem;
+    background:  desaturate(darken(@color-highlight, 8%), 15%);
+    color:       @color-white;
+    margin:      1px 0 0 1px;
+    padding:     0.3em 0.6em;
+    opacity:     1;
+    box-shadow:  0 0 4px fade(black, 15%);
     transition: .5s opacity;
+    border-radius: 3px;
   }
 
   article.fade {

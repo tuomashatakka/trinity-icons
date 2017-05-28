@@ -1238,6 +1238,16 @@ var defaultIconProvider = exports.defaultIconProvider = {
         return icons;
       });
     });
+  },
+
+  data: function data() {
+    return new _promise2.default(function (resolve) {
+      (0, _Loader.read)('icon_stats.json', function (resp) {
+        var data = JSON.parse(resp);
+        resolve(data);
+        return data;
+      });
+    });
   }
 };
 
@@ -1273,24 +1283,23 @@ var IconCatalog = function () {
     var variants = (0, _utils.load)('filters').variants || ['regular'];
 
     this._icons = [];
+    this._icon_stats = {};
     this.activeFilters = [FILTER.VARIANT, FILTER.QUERY];
     this.displayedVariants = variants;
     this.queryTerm = '';
     this.container = document.querySelector('#icons');
 
-    if (typeof provider.get === 'function') {
-      var provide = provider.get.call(this);
+    provider.data.call(this).then(function (content) {
+      return _this._icon_stats = content;
+    });
 
-      if (provide.constructor.name === 'Promise') provide.then(function (content) {
-        _this._icons = content;
-        _this.updateVariants.apply(_this, (0, _toConsumableArray3.default)(variants));
-        (0, _utils.setPreviewStyle)((0, _utils.loadStyle)());
-      });else {
-        this._icons = provide;
-        this.updateVariants.apply(this, (0, _toConsumableArray3.default)(variants));
-        (0, _utils.setPreviewStyle)((0, _utils.loadStyle)());
-      }
-    }
+    provider.get.call(this).then(function (content) {
+      _this._icons = content;
+      _this.updateVariants.apply(_this, (0, _toConsumableArray3.default)(variants));
+      (0, _utils.setPreviewStyle)((0, _utils.loadStyle)());
+    });
+
+    this.orderBy = this.orderBy.bind(this);
   }
 
   (0, _createClass3.default)(IconCatalog, [{
@@ -1306,10 +1315,10 @@ var IconCatalog = function () {
       var reset = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : false;
 
       var allIcons = this.getAllIcons();
-      if (reset) this._icons = allIcons;
 
+      if (reset) this._icons = allIcons;
       allIcons.forEach(function (icon) {
-        return _this2.icons.indexOf(icon) === -1 ? icon.classList.add('hidden') : icon.classList.remove('hidden');
+        return icon.toggle(_this2.icons.indexOf(icon) === -1);
       });
     }
   }, {
@@ -1342,17 +1351,14 @@ var IconCatalog = function () {
   }, {
     key: 'toggleFilter',
     value: function toggleFilter(filter) {
-
       var index = this.activeFilters.findIndex(function (item) {
         return item.name ? item.name == filter.name : item == filter;
       });
 
       if (index > -1) this.activeFilters.splice(index, 1);else {
         this.activeFilters.push(filter);
-        // this.filter(...this.activeFilters)
         this.update(true);
       }
-
       return this.filter.apply(this, (0, _toConsumableArray3.default)(this.activeFilters));
     }
   }, {
@@ -1373,8 +1379,22 @@ var IconCatalog = function () {
     }
   }, {
     key: 'orderBy',
-    value: function orderBy(term) {
-      (0, _utils.notify)('sorting icons', term);
+    value: function orderBy(order) {
+      var _this4 = this;
+
+      var allIcons = [].concat((0, _toConsumableArray3.default)(this.getAllIcons()));
+      var reversed = this.order == order + ' asc';
+      var details = this._icon_stats;
+      this.order = order + (reversed ? ' desc' : ' asc');
+
+      (0, _utils.save)('order', { order: this.order });
+      (0, _utils.notify)('sorting icons', this.order);
+      allIcons.sort(function (a, b) {
+        return sortBy(details[a.title], details[b.title], { order: order, reversed: reversed });
+      });
+      allIcons.forEach(function (item) {
+        return _this4.container.appendChild(item);
+      });
     }
   }, {
     key: 'icons',
@@ -1400,6 +1420,22 @@ exports.default = IconCatalog;
 var catalog = exports.catalog = function catalog() {
   return _catalog || (_catalog = new IconCatalog());
 };
+
+function sortBy(a, b, _ref) {
+  var order = _ref.order,
+      reversed = _ref.reversed;
+
+  var cm = order === 'alphabetically' ? 'name' : order === 'by variant' ? 'variant' : order === 'by category' ? 'path' : order === 'by date' ? 'date' : 'title';
+  var arg = reversed ? [cm, b, a] : [cm, a, b];
+  return cmp.apply(undefined, arg);
+}
+
+function cmp(prop, a, b) {
+  a = a[prop] || a;
+  b = b[prop] || b;
+  if (a && a > b) return 1;else if (b && a < b) return -1;
+  return 0;
+}
 
 function symbolToIconElement(symbol, container) {
 
@@ -2124,6 +2160,13 @@ var IconElement = function (_HTMLElement) {
       });
     }
   }, {
+    key: 'toggle',
+    value: function toggle() {
+      var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : null;
+
+      this.classList.toggle('hidden', state);
+    }
+  }, {
     key: 'open',
     value: function open() {
       (0, _OverlayView.overlay)().show(descriptionForItem(this));
@@ -2142,6 +2185,11 @@ var IconElement = function (_HTMLElement) {
     key: 'variant',
     get: function get() {
       return this.svgLayer.variant;
+    }
+  }, {
+    key: 'visible',
+    get: function get() {
+      return !this.classList.contains('hidden');
     }
   }]);
   return IconElement;
@@ -2305,8 +2353,9 @@ function addListeners() {
       onObservableChange.call.apply(onObservableChange, [this].concat((0, _toConsumableArray3.default)(namespace)));
     };
     fields.forEach(function (field) {
-      field.addEventListener('change', handler.bind(field));
+      // field.addEventListener('change', handler.bind(field))
       field.addEventListener('keyup', handler.bind(field));
+      field.addEventListener('click', handler.bind(field));
     });
   });
   menuToggle.addEventListener('click', toggleMenu);
@@ -2337,6 +2386,7 @@ var _from = __webpack_require__(29);
 
 var _from2 = _interopRequireDefault(_from);
 
+exports.read = read;
 exports.default = include;
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }

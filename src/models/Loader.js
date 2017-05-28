@@ -3,7 +3,7 @@
 let include_index = 0
 
 
-function read (path, success) {
+export function read (path, success) {
   let { origin } = location
   let src = path[0] === '/' ? path.substr(1) : path
 

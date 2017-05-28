@@ -26,8 +26,9 @@ function addListeners () {
     let fields    = element.querySelectorAll('input')
     let handler   = function () { onObservableChange.call(this, ...namespace) }
     fields.forEach(field => {
-      field.addEventListener('change', handler.bind(field))
+      // field.addEventListener('change', handler.bind(field))
       field.addEventListener('keyup', handler.bind(field))
+      field.addEventListener('click', handler.bind(field))
   })})
   menuToggle.addEventListener('click', toggleMenu)
 }

@@ -25,6 +25,14 @@ export default class IconElement extends HTMLElement {
     return this.svgLayer.variant
   }
 
+  get visible () {
+    return !this.classList.contains('hidden')
+  }
+
+  toggle (state=null) {
+    this.classList.toggle('hidden', state)
+  }
+
   open () {
     overlay().show(descriptionForItem(this))
   }

@@ -1,6 +1,6 @@
 
 import { setPreviewStyle, loadStyle, save, load, appendTemplate, notify } from '../utils'
-import include from './Loader'
+import include, { read } from './Loader'
 
 let _catalog
 
@@ -21,6 +21,14 @@ export const defaultIconProvider = {
 
         resolve(icons)
         return icons
+      })})},
+
+  data: function () {
+    return new Promise(resolve => {
+      read('icon_stats.json', resp => {
+        let data = JSON.parse(resp)
+        resolve(data)
+        return data
       })})},
 }
 
@@ -48,27 +56,21 @@ export default class IconCatalog {
     let variants = load('filters').variants || [ 'regular' ]
 
     this._icons            = []
+    this._icon_stats       = {}
     this.activeFilters     = [ FILTER.VARIANT, FILTER.QUERY, ]
     this.displayedVariants = variants
     this.queryTerm         = ''
     this.container         = document.querySelector('#icons')
 
-    if (typeof provider.get === 'function') {
-      let provide = provider.get.call(this)
+    provider.data.call(this).then(content =>
+      this._icon_stats = content)
 
-      if (provide.constructor.name === 'Promise')
-        provide.then(content => {
-          this._icons = content
-          this.updateVariants(...variants)
-          setPreviewStyle(loadStyle())
-        })
-      else {
-        this._icons = provide
-        this.updateVariants(...variants)
-        setPreviewStyle(loadStyle())
-      }
-    }
+    provider.get.call(this).then(content => {
+      this._icons = content
+      this.updateVariants(...variants)
+      setPreviewStyle(loadStyle()) })
 
+    this.orderBy = this.orderBy.bind(this)
   }
 
   getAllIcons () {
@@ -90,10 +92,10 @@ export default class IconCatalog {
 
   update (reset=false) {
     let allIcons = this.getAllIcons()
+
     if (reset)
       this._icons = allIcons
-
-    allIcons.forEach(icon => this.icons.indexOf(icon) === -1 ? icon.classList.add('hidden') : icon.classList.remove('hidden'))
+    allIcons.forEach(icon => icon.toggle(this.icons.indexOf(icon) === -1))
   }
 
   reset () {
@@ -115,17 +117,14 @@ export default class IconCatalog {
   }
 
   toggleFilter (filter) {
-
     let index = this.activeFilters.findIndex(item => item.name ? item.name == filter.name : item == filter)
 
     if (index > -1)
       this.activeFilters.splice(index, 1)
     else {
       this.activeFilters.push(filter)
-      // this.filter(...this.activeFilters)
       this.update(true)
     }
-
     return this.filter(...this.activeFilters)
   }
 
@@ -137,14 +136,39 @@ export default class IconCatalog {
     return this.icons
   }
 
-  orderBy (term) {
-    notify('sorting icons', term)
+  orderBy (order) {
+    let allIcons = [ ...this.getAllIcons() ]
+    let reversed = (this.order == order + ' asc')
+    let details  = this._icon_stats
+    this.order   = order + (reversed ? ' desc' : ' asc')
+
+    save('order', { order: this.order })
+    notify('sorting icons', this.order)
+    allIcons.sort((a, b) => sortBy(details[a.title], details[b.title], { order, reversed }))
+    allIcons.forEach(item => this.container.appendChild(item))
   }
 }
 
-
 export const catalog = () => _catalog || (_catalog = new IconCatalog())
 
+function sortBy (a, b, { order, reversed }) {
+  let cm =
+    (order === 'alphabetically') ? 'name' :
+    (order === 'by variant') ? 'variant' :
+    (order === 'by category') ? 'path' :
+    (order === 'by date') ? 'date' :
+    'title'
+  let arg = reversed ? [ cm, b, a ] : [ cm, a, b ]
+  return cmp(...arg)
+}
+
+function cmp (prop, a, b) {
+  a = a[prop] || a
+  b = b[prop] || b
+  if (a && a > b) return 1
+  else if (b && a < b) return -1
+  return 0
+}
 
 function symbolToIconElement (symbol, container) {
 
