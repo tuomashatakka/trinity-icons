@@ -26,8 +26,14 @@ export const defaultIconProvider = {
   data: function () {
     return new Promise(resolve => {
       read('icon_stats.json', resp => {
-        let data = JSON.parse(resp)
-        resolve(data)
+        let data
+        try {
+          data = JSON.parse(resp)
+        } catch (e) {
+          data = {}
+        } finally {
+          resolve(data)
+        }
         return data
       })})},
 }

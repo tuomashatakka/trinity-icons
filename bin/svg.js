@@ -78,25 +78,29 @@ function readAll ({ src, dst }) {
   let stream     = createWriteStream(dst)
   let files      = getSVGFiles(src)
 
-  stream.write(`<svg xmlns="http://www.w3.org/2000/svg">\n`)
-  statStream.write(`{\n`)
+  return new Promise(done => {
+    stream.write(`<svg xmlns="http://www.w3.org/2000/svg">\n`)
+    statStream.write(`{\n`)
 
-  for (let file of files) {
-    let path = resolve(src + '/' + file)
+    for (let file of files) {
+      let path = resolve(src + '/' + file)
 
-    stream.write(readSVG(path))
-    getStats({ path, format: 'utf8' })
-    .then(stats => {
+      stream.write(readSVG(path))
+      getStats({ path, format: 'utf8' })
+      .then(stats => {
 
-      statStream.write(`"${file.split('.')[0]}": ${stats}`)
-      if (++statsIter >= files.length) {
-        statStream.write(`\n}\n`)
-        statStream.end() }
-      else statStream.write(`,\n`)
-    })
-  }
-  stream.write(`</svg>\n`)
-  stream.end()
+        statStream.write(`"${file.split('.')[0]}": ${stats}`)
+        if (++statsIter >= files.length) {
+          statStream.write(`\n}\n`)
+          statStream.end()
+          done()
+        }
+        else statStream.write(`,\n`)
+      })
+    }
+    stream.write(`</svg>\n`)
+    stream.end()
+  })
 }
 
 function appendToHTML ({ src, dst }) {

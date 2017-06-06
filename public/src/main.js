@@ -1243,8 +1243,14 @@ var defaultIconProvider = exports.defaultIconProvider = {
   data: function data() {
     return new _promise2.default(function (resolve) {
       (0, _Loader.read)('icon_stats.json', function (resp) {
-        var data = JSON.parse(resp);
-        resolve(data);
+        var data = void 0;
+        try {
+          data = JSON.parse(resp);
+        } catch (e) {
+          data = {};
+        } finally {
+          resolve(data);
+        }
         return data;
       });
     });
