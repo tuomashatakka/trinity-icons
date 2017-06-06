@@ -1,5 +1,4 @@
 
-
 let include_index = 0
 
 
@@ -7,7 +6,7 @@ export function read (path, success) {
   let { origin } = location
   let src = path[0] === '/' ? path.substr(1) : path
 
-  return fetch([ origin, src ].join('/'))
+  return fetch([ origin, 'trinity-icons', src ].join('/'))
     .then(response => response.text())
     .then(content => {
       return success(content, src) || ''
