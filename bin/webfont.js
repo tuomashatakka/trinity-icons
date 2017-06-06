@@ -18,11 +18,12 @@ function generateArchive (name, src) {
     console.log('Archiver file descriptor has closed.');
 done()
   })
-}) 
+
   archive.on('error', err => { throw err })
   archive.pipe(output)
   archive.directory(src)
   archive.finalize()
+}) 
 }
 
 function generateIconFont (dest='assets/font/') {
