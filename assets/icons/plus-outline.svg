@@ -1,6 +1,6 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 320">
   <title>plus-outline</title>
-  <g id="Layer_16" data-name="Layer 16">
-    <path d="M160,240V80m80,80H80" class="outline"/>
+  <g id="plus">
+    <path d="M160.5833,80V241.1667M80,160.5833H241.1667" class="outline"/>
   </g>
 </svg>

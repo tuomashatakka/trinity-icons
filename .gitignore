@@ -4,3 +4,4 @@
 *stats.json
 *.lock
 /dist/
+assets/icons/empty*
