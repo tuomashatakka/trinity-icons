@@ -1,15 +1,15 @@
 const { readAll } = require('./svg')
-const { BASE_PATH } = require('./utils')
+const { BASE_PATH, print } = require('./utils')
 
 let src = process.argv[2] || BASE_PATH
 let dst = 'public/icons.svg'
 
 readAll({ src, dst })
-  .then(() => print(
-    `
-    Successfully concatenated SVG files to ${dst}
-    `
-  ))
+  .then(() => console.log(`
+      Successfully concatenated SVG files to ${dst}
+      `)
+)
+.catch(err => console.error("ASLKJDFDF", err))
 
 // generateJSON({
 //   src,

@@ -1,6 +1,6 @@
-const { readFileSync, readdirSync, createWriteStream, stat, writeFile } = require("fs")
+const { readFileSync, readdirSync, createWriteStream, stat } = require("fs")
 const { resolve, basename, dirname, parse } = require("path")
-const { slug, BASE_PATH, PUBLIC_PATH, getHTMLFragments } = require('./utils')
+const { slug, title: titleCase } = require('./utils')
 
 function getSVGFiles (dir) {
   let files = readdirSync(dir)
@@ -35,9 +35,8 @@ function readSVG (fullpath) {
 }
 
 function cleanup (content) {
-  content = content.replace(/[\s\-]+(\w)/gi, (_, char) => ' ' + char.toUpperCase())
-  content = content.replace(/\s+filled|\s+outline/gi, '')
-  return content[0].toUpperCase() + content.substr(1)
+  // content = content.replace(/[\s\-]+(\w)/gi, (_, char) => ' ' + char.toUpperCase())
+  return content.replace(/filled|outline/gi, txt => '(' + txt + ')')
 }
 
 function resolveVariant (name) {
@@ -47,15 +46,16 @@ function resolveVariant (name) {
 }
 
 function getStats ({ path, format='json' }) {
-  let title = basename(path).split('.')[0]
+  return new Promise((accept, reject) => {
+    let { name } = parse(path)
+    // title = title.replace(/Outline|Filled/g, txt => `(${txt})`)
 
-  return new Promise(accept => {
     stat(resolve(path), (err, stats) => {
       if (err)
-        throw new Error("Invalid stat read in", path)
-      let name = title
+        reject("Invalid stat read in", path)
+
       let variant = resolveVariant(name)
-      let displayName = cleanup(title)
+      let displayName = cleanup(titleCase(name))
       let date = stats.ctime
 
       stats = { path, name, displayName, date, variant, }
@@ -80,10 +80,12 @@ function wrapSymbol ({ name, content, viewBox }) {
 function readAll ({ src, dst }) {
 
   const OUTPUT_FILE_COUNT = 2
-  let iter       = 0
   let statStream = createWriteStream(resolve(dirname(dst), 'icon_stats.json'))
   let stream     = createWriteStream(dst)
   let files      = getSVGFiles(src)
+  let fileIter   = 0
+  stream.iter = 0
+  statStream.iter = 0
 
   return new Promise((done) => {
 
@@ -91,26 +93,28 @@ function readAll ({ src, dst }) {
     statStream.write(`{\n`)
 
     const finish = (sto, seq) => {
-      sto.write(`${seq}\n`)
+      sto.write(seq)
       sto.end()
-      if (++iter === OUTPUT_FILE_COUNT)
-        done()
+      if (++fileIter === OUTPUT_FILE_COUNT)
+        done({ dst })
     }
 
     const write = (sto, content, eol, eof) => {
-      try { sto.write(content) }
-      catch (err) { return finish(sto, eof) }
-      sto.write(eol)
+      if (++sto.iter === files.length)
+        finish(sto, content + eof + '\n')
+      else
+        sto.write(content + eol + '\n')
     }
 
-    for (let file of files) {
+    for (let n in files) {
+      let file = files[n]
       let { name } = parse(file)
       let path = resolve(src + '/' + file)
       let stat = getStats({ path, format: 'utf8' })
       let svg  = readSVG(path)
 
-      svg.then(svg => write(stream, svg, '\n', '</svg>\n'))
-      stat.then(stats => write(statStream, `"${name}": ${stats}`, '\n,', '\n'))
+      svg.then(svg => write(stream, svg, '', '</svg>'))
+      stat.then(stats => write(statStream, `"${name}": ${stats}`, ',', '}'))
     }
   })
 }

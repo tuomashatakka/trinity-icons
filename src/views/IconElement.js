@@ -1,5 +1,6 @@
 
 import { register, onclick } from '../utils'
+import { catalog } from '../models/IconCatalog'
 import { overlay } from './OverlayView'
 
 export default class IconElement extends HTMLElement {
@@ -18,7 +19,7 @@ export default class IconElement extends HTMLElement {
   }
 
   get displayName () {
-    return this.svgLayer.displayName
+    return this.details.displayName
   }
 
   get variant () {
@@ -27,6 +28,10 @@ export default class IconElement extends HTMLElement {
 
   get visible () {
     return !this.classList.contains('hidden')
+  }
+
+  get details () {
+    return getIconDetails(this.title)
   }
 
   toggle (state=null) {
@@ -40,13 +45,16 @@ export default class IconElement extends HTMLElement {
 }
 
 
+function getIconDetails (name) {
+  return catalog()._icon_stats[name]
+}
+
+
 function descriptionForItem (item) {
   let el            = document.createElement('article')
   let icon          = el.appendChild(document.createElement('div'))
   let iconContent   = item.svgLayer.cloneNode(true)
-
-  icon.classList.add('icon')
-  icon.appendChild(iconContent)
+  let { details }   = item
 
   const code = (type, content) => body.querySelector('code.' + type).textContent = content
   const addSection    = (titleText, content) => {
@@ -55,10 +63,15 @@ function descriptionForItem (item) {
     let body          = description.appendChild(document.createElement('div'))
     body.innerHTML    = content
     title.textContent = titleText
-    return body }
+    return body
+  }
 
-  const body = addSection(item.displayName,
-  ` <h3>Use as SVG</h3>
+  icon.classList.add('icon')
+  icon.appendChild(iconContent)
+
+  const body = addSection(details.displayName,
+    `
+    <h3>Use as SVG</h3>
     <code class='svg'></code>
     <ol>
       <li>Download and include the <a href='icons.svg'>trinity.svg</a> file in your project</li>
@@ -75,10 +88,13 @@ function descriptionForItem (item) {
     </ol>
 
     <h3>Use as image</h3>
-    <code class='img'></code> `)
+    <code class='img'></code>
+    `
+  )
 
   code('svg',  `<svg><use href='trinity.svg#${item.title}' /></svg>`)
   code('img',  `<img src='trinity.svg#${item.title}' />`)
   code('font', `<i class='tri tri-${item.title}'></i>`)
+
   return el
 }

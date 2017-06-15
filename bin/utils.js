@@ -15,12 +15,10 @@ const LIB_PATH    = resolve(ROOT_PATH + '/assets/lib')
 const INDEX_FILE_PATH = join(PUBLIC_PATH, 'index.html')
 
 function print (...msg) {
-  let type    = ['info', 'log', 'warn', 'error'].indexOf(msg[0]) ? msg.pop() : 'log'
-  let message = msg.join(" ")
-  if (type === 'info') console.info(message) // eslint-disable-line
-  else if (type === 'warn') console.warn(message) // eslint-disable-line
-  else if (type === 'error')console.error(message) // eslint-disable-line
-  else console.log(message) // eslint-disable-line
+  let message = msg.join("\n")
+
+  // eslint-disable-next-line
+  console.log(message)
   return message
 }
 
@@ -48,10 +46,16 @@ function slug (name, f=true) {
 function title (name) {
 
   const transforms = [
-    /* Remove extension */ str => str.replace(/\.[^\.]*$/, ''),
-    /* Remove path */      str => str.replace(/^.*\//, ''),
+
+    // Remove extension
+    str => str.replace(/\.[^\.]*$/, ''),
+
+    // Remove path
+    str => str.replace(/^.*\//, ''),
+
     // Transform the very first character to uppercase
     str => str[0].toUpperCase() + str.substr(1),
+
     // Truncate multiple spaces, replace dashes with spaces and transform first letter of each word to uppercase
     str => str.replace(/[^\w\d]+(.)/g, (_, char) => ' ' + char.toUpperCase()),
   ]
