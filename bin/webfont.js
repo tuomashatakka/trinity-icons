@@ -1,27 +1,27 @@
+'use babel'
 const webfont  = require('webfonts-generator')
 const archiver = require('archiver')
-const { readdirSync, createWriteStream, mkdirSync, rmdirSync, existsSync } = require("fs")
+const { createWriteStream, mkdirSync, existsSync } = require("fs")
 const { resolve } = require("path")
-const { BASE_PATH, getSVGFiles, slug } = require('./utils')
-// require modules
+const { getSVGFiles, slug } = require('./utils')
 
 // create a file to stream archive data to.
 function generateArchive (name, src) {
-  let output = createWriteStream(resolve(`${name}.zip`))
+  let dst = resolve(`${name}.zip`)
+  let output = createWriteStream(dst)
   let archive = archiver('zip', {
       zlib: { level: 9 } // Sets the compression level.
   })
-  output.on('close', () => {
-    console.log('Archive size ' + archive.pointer() + ' bytes');
-    console.log('Archiver file descriptor has closed.');
+  return new Promise((resolve, reject) => {
+    output.on('close', () => { resolve({ src, name, size: archive.pointer() / 1024, path: dst }) })
+    archive.on('error', err => { reject(err) })
+    archive.pipe(output)
+    archive.directory(src)
+    archive.finalize()
   })
-  archive.on('error', err => { throw err })
-  archive.pipe(output)
-  archive.directory(src)
-  archive.finalize()
 }
 
-function generateIconFont (dest='assets/font/') {
+function generateIconFont (dest='assets/font/', archiveDest='assets/iconfont') {
 
   let rename = name => slug(name)
   let files = getSVGFiles()
@@ -31,13 +31,24 @@ function generateIconFont (dest='assets/font/') {
     baseSelector: '.tri'
   }
 
-  let callback = error => error ?
-    console.error('Failed to create webfont:', error) :
-    generateArchive('assets/iconfont', dest)
+  return new Promise((resolve, reject) => {
 
-  if (!existsSync(dest))
-    mkdirSync(dest)
-  webfont({ files, dest, fontName, templateOptions, rename }, callback)
+    let errorCallback = error => reject(error)
+    let successCallback = () => generateArchive(archiveDest, dest)
+      .then(resolve)
+      .catch(reject)
+
+    if (!existsSync(dest))
+      mkdirSync(dest)
+
+    webfont({
+      files,
+      dest,
+      fontName,
+      templateOptions,
+      rename },
+      error => error ? errorCallback(error) : successCallback())
+  })
 }
 
 module.exports = {

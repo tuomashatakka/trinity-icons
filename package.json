@@ -5,7 +5,7 @@
   "main": "src/index.js",
   "scripts": {
     "import": "node ./bin/import-svg",
-    "deploy": "node ./bin/deploy && webpack",
+    "deploy": "node ./bin/deploy && webpack && npm run less",
     "start": "node bin/serve",
     "test": "echo \"Error: no test specified\" && exit 1",
     "svg": "node ./bin/compose-svg",

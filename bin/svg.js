@@ -1,5 +1,5 @@
 const { readFileSync, readdirSync, createWriteStream, stat, writeFile } = require("fs")
-const { resolve, basename, dirname } = require("path")
+const { resolve, basename, dirname, parse } = require("path")
 const { slug, BASE_PATH, PUBLIC_PATH, getHTMLFragments } = require('./utils')
 
 function getSVGFiles (dir) {
@@ -13,19 +13,25 @@ function readSVG (fullpath) {
   let name    = basename(path)
   let content = ''
   let viewBox = [0, 0, 128, 128]
-  try {
-    content   = readFileSync(path, 'utf8')
-  }
-  finally {
-    let start = content.search('</title>') + 8
-    let end   = content.search('</svg>')
-    content.replace(/viewBox\=[\"\'](.+?\d+)[\"\']/, (_, val) => {
-      viewBox = val // .trim().split(/\s+/).map(n => parseInt(n))
-    })
-    content   = content.substr(start, end - start)
-    content   = wrapSymbol({ name, content, viewBox })
-  }
-  return content
+
+  return new Promise((resolve, reject) => {
+
+    try {
+      content = readFileSync(path, 'utf8')
+    }
+    catch (err) {
+      reject(err)
+    }
+    finally {
+      let start = content.search('</title>') + 8
+      let end   = content.search('</svg>')
+      content.replace(/viewBox\=[\"\'](.+?\d+)[\"\']/, (_, val) => {
+        viewBox = val // .trim().split(/\s+/).map(n => parseInt(n))
+      })
+      content = content.substr(start, end - start)
+      resolve(wrapSymbol({ name, content, viewBox }))
+    }
+  })
 }
 
 function cleanup (content) {
@@ -73,53 +79,58 @@ function wrapSymbol ({ name, content, viewBox }) {
 
 function readAll ({ src, dst }) {
 
-  let statsIter  = 0
+  const OUTPUT_FILE_COUNT = 2
+  let iter       = 0
   let statStream = createWriteStream(resolve(dirname(dst), 'icon_stats.json'))
   let stream     = createWriteStream(dst)
   let files      = getSVGFiles(src)
 
-  return new Promise(done => {
+  return new Promise((done) => {
+
     stream.write(`<svg xmlns="http://www.w3.org/2000/svg">\n`)
     statStream.write(`{\n`)
 
-    for (let file of files) {
-      let path = resolve(src + '/' + file)
-
-      stream.write(readSVG(path))
-      getStats({ path, format: 'utf8' })
-      .then(stats => {
-
-        statStream.write(`"${file.split('.')[0]}": ${stats}`)
-        if (++statsIter >= files.length) {
-          statStream.write(`\n}\n`)
-          statStream.end()
-          done()
-        }
-        else statStream.write(`,\n`)
-      })
+    const finish = (sto, seq) => {
+      sto.write(`${seq}\n`)
+      sto.end()
+      if (++iter === OUTPUT_FILE_COUNT)
+        done()
     }
-    stream.write(`</svg>\n`)
-    stream.end()
+
+    const write = (sto, content, eol, eof) => {
+      try { sto.write(content) }
+      catch (err) { return finish(sto, eof) }
+      sto.write(eol)
+    }
+
+    for (let file of files) {
+      let { name } = parse(file)
+      let path = resolve(src + '/' + file)
+      let stat = getStats({ path, format: 'utf8' })
+      let svg  = readSVG(path)
+
+      svg.then(svg => write(stream, svg, '\n', '</svg>\n'))
+      stat.then(stats => write(statStream, `"${name}": ${stats}`, '\n,', '\n'))
+    }
   })
 }
 
-function appendToHTML ({ src, dst }) {
-
-  let [ before, after ] = getHTMLFragments(dst)
-  let stream = createWriteStream(dst)
-  let files  = getSVGFiles(src)
-
-  stream.write(before)
-  stream.write(`<svg xmlns="http://www.w3.org/2000/svg">\n`)
-  for (let file of files)
-    stream.write(readSVG(file))
-  stream.write(`</svg>\n`)
-  stream.write(after)
-  stream.end()
-}
+// function appendToHTML ({ src, dst }) {
+//
+//   let [ before, after ] = getHTMLFragments(dst)
+//   let stream = createWriteStream(dst)
+//   let files  = getSVGFiles(src)
+//
+//   stream.write(before)
+//   stream.write(`<svg xmlns="http://www.w3.org/2000/svg">\n`)
+//   for (let file of files)
+//     stream.write(readSVG(file))
+//   stream.write(`</svg>\n`)
+//   stream.write(after)
+//   stream.end()
+// }
 
 function writeArray (stream, name, items) {
-
   stream.write(`var ${name} = [\n`)
   for (let item of items) {
     let comma    = item == items[items.length - 1] ? '' : ', '
@@ -144,8 +155,8 @@ function generateJSON({ src, dst }) {
 module.exports = {
   getSVGFiles,
   readSVG,
-  wrapSymbol,
-  appendToHTML,
   readAll,
+  wrapSymbol,
+  // appendToHTML,
   generateJSON,
 }
