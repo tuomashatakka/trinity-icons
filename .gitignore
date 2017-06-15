@@ -5,3 +5,5 @@
 *.lock
 /dist/
 assets/icons/empty*
+assets/font
+assets/iconfont.zip
