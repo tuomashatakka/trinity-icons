@@ -10,7 +10,7 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "svg": "node ./bin/compose-svg",
     "svg:flat": "node ./bin/compose-flattened-svg",
-    "less": "lessc --source-map=assets/maps/style.css.map public/styles/index.less public/style.css",
+    "less": "lessc --source-map=assets/maps/style.css.map styles/index.less public/style.css",
     "font": "node ./bin/compose-font"
   },
   "repository": {

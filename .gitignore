@@ -7,3 +7,9 @@
 assets/icons/empty*
 assets/font
 assets/iconfont.zip
+assets/icons.zip
+public/assets
+public/src
+public/*.css
+public/*.js
+public/*.svg

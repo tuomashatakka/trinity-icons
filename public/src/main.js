@@ -2405,7 +2405,7 @@ function read(path, success) {
 
   var src = path[0] === '/' ? path.substr(1) : path;
 
-  return fetch([origin, src].join('/')).then(function (response) {
+  return fetch([origin, 'trinity-icons', src].join('/')).then(function (response) {
     return response.text();
   }).then(function (content) {
     return success(content, src) || '';
