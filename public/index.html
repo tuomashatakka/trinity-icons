@@ -22,47 +22,52 @@
 
     <!-- Page top header area -->
     <header>
+
       <section id='flow'></section>
       <h1>
         <svg class='icon'><use href='#hummingbird' /></svg>
-        Tr1nity Icon Set
-      </h1>
-    </header>
+        Tr1nity Icon Set</h1>
 
+    </header>
     <main>
+
       <!-- Head description -->
       <section id='description'>
-        <p>Minimal icon set ready to use in SVG & font format.</p>
-        <strong>This project is at an early alpha stage. It is not recommended to use the icons in production environment yet.</strong>
+
+        <p>
+          Minimal icon set ready to use in SVG & font formats.</p>
+
+        <strong>
+          The project is at its early beta.
+          It is not recommended to use the icons in production environment yet.</strong>
 
         <section class='columns'>
+
           <article>
             <h4>Getting started</h4>
+
             <ul>
               <li>Download the icons in your preferred format</li>
               <li>Include the downloaded files in your document</li>
-              <li>See the icons below for more detailed instructions</li>
-            </ul>
+              <li>See the icons below for more detailed instructions</li></ul>
+
           </article>
 
           <article>
             <a class='btn' href='assets/icons.zip'>
               <svg class='ico large'><use href='#download' /></svg>
-              Source files (SVG & PNG)
-            </a>
+              Source files (SVG & PNG)</a>
 
             <a class='btn' href='icons.svg'>
               <svg class='ico large'><use href='#download' /></svg>
-              SVG symbols file
-            </a>
+              SVG symbols file</a>
 
             <a class='btn' href='assets/iconfont.zip'>
               <svg class='ico large'><use href='#download' /></svg>
-              Webfont
-            </a>
+              Webfont</a>
+
           </article>
         </section>
-
       </section>
 
       <!-- Togglable menu -->
@@ -72,35 +77,43 @@
 
         <article data-dispatch='filter.search'>
           <h3>Search</h3>
+
           <label>
             <input type='search' name='search' placeholder='Type name tag or category' /></label>
+
         </article>
 
         <article data-dispatch='filter.variant'>
           <h3>Filter</h3>
+
           <label>
             <h4>Regular</h4>
             <input type='checkbox' name='variant' value='regular' checked='checked' /></label>
+
           <label>
             <h4>Outline</h4>
             <input type='checkbox' name='variant' value='outline' /></label>
+
           <label>
             <h4>Filled</h4>
             <input type='checkbox' name='variant' value='filled' /></label>
+
         </article>
 
         <article data-dispatch='filter.sort'>
           <h3>Sort by</h3>
+
           <label class="grp">
             <input type="radio" name="sort" value="Alphabetically" checked='checked' />
             <input type="radio" name="sort" value="By date" />
             <input type="radio" name="sort" value="By variant" />
-            <input type="radio" name="sort" value="By category" />
-          </label>
+            <input type="radio" name="sort" value="By category" /></label>
+
         </article>
 
         <article data-bind="preview">
           <h3>Preview & styling</h3>
+
           <label data-dispatch='preview.size' class="grp">
             <h4>Size</h4>
             <input type="radio" name="width" value="xsmall" />
@@ -108,19 +121,19 @@
             <input type="radio" name="width" value="medium" />
             <input type="radio" name="width" value="large" />
             <input type="radio" name="width" value="huge" /></label>
+
           <label data-dispatch='preview.stroke'>
             <h4>Stroke</h4>
             <input type="range" name="stroke-width" value=1 min=0 max=4 step =0.1 /></label>
+
           <label data-dispatch='preview.color'>
             <h4>Color</h4>
             <input type='color' name="color" value="#251f2e" /></label>
+
         </article>
       </section>
 
-      <!-- Container for preview icons -->
       <section id='icons'></section>
-
-      <!-- Display the icons -->
       <template data-name='icon'>
         <icon-entry>
           <div class='icon'></div>
@@ -128,9 +141,9 @@
           <h3 class='title'></h3>
         </icon-entry>
       </template>
-
       <script src="main.js"></script>
-
     </main>
+
+
   </body>
 </html>
