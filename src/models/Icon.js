@@ -1,6 +1,4 @@
 
-import { register, onclick } from '../utils'
-
 export default class Icon {
 
   constructor(element) {
