@@ -10,6 +10,7 @@ const PORT   = process.argv[2] || process.env.PORT || 3000
 
 server.use('/trinity-icons', exp.static(PUBLIC))
 server.use('/assets',        exp.static(ASSETS))
+server.use('/styles',        exp.static(ROOT_PATH + '/styles'))
 server.use('/nodes',         exp.static(ROOT_PATH + '/node_modules'))
 server.use('/',              exp.static(PUBLIC))
 

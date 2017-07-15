@@ -3,7 +3,7 @@ const webfont  = require('webfonts-generator')
 const archiver = require('archiver')
 const { createWriteStream, mkdirSync, existsSync } = require("fs")
 const { resolve } = require("path")
-const { getSVGFiles, slug } = require('./utils')
+const { getSVGFiles, parseSVGFileMeta, slug } = require('./utils')
 
 // create a file to stream archive data to.
 function generateArchive (name, src) {
@@ -24,7 +24,10 @@ function generateArchive (name, src) {
 function generateIconFont (dest='assets/font/', archiveDest='assets/iconfont') {
 
   let rename = name => slug(name)
-  let files = getSVGFiles()
+  let files  = getSVGFiles()
+    .map(parseSVGFileMeta)
+    .filter(item => item.raster)
+    .map(item => item.path)
   let fontName = 'trinity'
   let templateOptions = {
     classPrefix: 'tri-',

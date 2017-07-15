@@ -61,11 +61,14 @@ icon-entry.hidden {
 
 icon-entry:hover {
   background: #ff3a88;
-  color:      #ffffff;
+  color:      #ffffff !important;
   z-index:    1200;
   transition: .1s all 0s;
   transform:  scale(1.25);
   box-shadow: 1rem 1.5rem 2rem rgba(0, 0, 0, 0.1) }
+
+icon-entry:hover .icon {
+  color:      #ffffff !important }
 
 svg-icon {
   -webkit-font-smoothing: antialiased;

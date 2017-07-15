@@ -16,8 +16,10 @@ export const defaultIconProvider = {
 
         let symbols = [...resp.children]
         let icons   = symbols
-          .filter(sym => !sym.getAttribute('id').startsWith('flat-'))
-          .map(sym    => symbolToIconElement(sym, container))
+          .filter(sym => (
+            !sym.getAttribute('id').startsWith('flat-') &&
+            !sym.getAttribute('id').startsWith('_.') ))
+          .map(sym => symbolToIconElement(sym, container))
 
         resolve(icons)
         return icons
@@ -81,6 +83,10 @@ export default class IconCatalog {
 
   getAllIcons () {
     return [ ...this.container.children ]
+  }
+
+  getIconMeta (name) {
+    return this._icon_stats[name] || {}
   }
 
   set icons (val) {

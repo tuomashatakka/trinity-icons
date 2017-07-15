@@ -1,6 +1,6 @@
 
 const { readFileSync, readdirSync } = require("fs")
-const { resolve, basename, join } = require("path")
+const { resolve, dirname, basename, join } = require("path")
 
 const ROOT_PATH   = resolve(__dirname + '/../')
 
@@ -27,6 +27,43 @@ function getSVGFiles (dir=BASE_PATH) {
     .filter(name => name.endsWith('.svg'))
     .map(name => resolve(`${dir}/${name}`))
   return files || []
+}
+
+function parseSVGFileMeta (item) {
+  let variant
+  let name = basename(item)
+  let path = item
+  let parts = name.split('.').slice(0, -1)
+
+  let raster = (parts[0] === '_')
+  if (raster)
+    parts.shift()
+  if (!parts.length)
+    return null
+
+  let [ category, title ] = parts
+  if (!title) {
+    title = category
+    category = 'default'
+  }
+  if (title.endsWith('-filled')) {
+    variant = 'filled'
+    title = title.substr(0, title.length - 7)
+  }
+  else if (title.endsWith('-outline')) {
+    variant = 'outline'
+    title = title.substr(0, title.length - 8)
+  }
+  else {
+    variant = 'regular'
+  }
+  return {
+    category,
+    title,
+    variant,
+    name,
+    path,
+    raster }
 }
 
 function getHTMLFragments (file) {
@@ -65,6 +102,7 @@ function title (name) {
 
 module.exports = {
   getSVGFiles,
+  parseSVGFileMeta,
   getHTMLFragments,
   print,
   title,

@@ -1,5 +1,5 @@
 
-import { register, onclick } from '../utils'
+import { cleanup, register, onclick } from '../utils'
 import { catalog } from '../models/IconCatalog'
 import { overlay } from './OverlayView'
 
@@ -14,25 +14,12 @@ export default class IconElement extends HTMLElement {
       (el) => el.getAttribute('name'))
   }
 
-  get svgLayer () {
-    return this.querySelector('svg-icon')
-  }
-
-  get displayName () {
-    return this.details.displayName
-  }
-
-  get variant () {
-    return this.svgLayer.variant
-  }
-
-  get visible () {
-    return !this.classList.contains('hidden')
-  }
-
-  get details () {
-    return getIconDetails(this.title)
-  }
+  get displayName () { return cleanup(this.details.title) }
+  get svgLayer () {    return this.querySelector('svg-icon') }
+  get category () {    return this.details.category }
+  get variant () {     return this.svgLayer.variant }
+  get visible () {     return !this.classList.contains('hidden') }
+  get details () {     return getIconDetails(this.title) }
 
   toggle (state=null) {
     this.classList.toggle('hidden', state)
@@ -46,7 +33,7 @@ export default class IconElement extends HTMLElement {
 
 
 function getIconDetails (name) {
-  return catalog()._icon_stats[name]
+  return catalog().getIconMeta(name)
 }
 
 
@@ -55,6 +42,7 @@ function descriptionForItem (item) {
   let icon          = el.appendChild(document.createElement('div'))
   let iconContent   = item.svgLayer.cloneNode(true)
   let { details }   = item
+  console.warn(details, '"!!"')
 
   const code = (type, content) => body.querySelector('code.' + type).textContent = content
   const addSection    = (titleText, content) => {
@@ -69,8 +57,12 @@ function descriptionForItem (item) {
   icon.classList.add('icon')
   icon.appendChild(iconContent)
 
-  const body = addSection(details.displayName,
+  const body = addSection(item.displayName,
     `
+    <section class='details'>
+      <span class='tag'>Category ${item.category}</span>
+      <span class='tag'>Variant ${item.variant}</span>
+    </section>
     <h3>Use as SVG</h3>
     <code class='svg'></code>
     <ol>

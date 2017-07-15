@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 320">
+  <title>filesystem.file-code</title>
+  <g id="undo">
+    <g>
+      <path d="M80,40H190l50,50V270H80Zm110,0,10,60,40-10Z" class="outline"/>
+      <g>
+        <polyline points="140 130 110 160 140 190" class="outline"/>
+        <polyline points="170 190 200 160 170 130" class="outline"/>
+      </g>
+    </g>
+  </g>
+</svg>

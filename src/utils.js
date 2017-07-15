@@ -20,6 +20,14 @@ export function onclick (callback) {
 }
 
 
+export function cleanup (txt) {
+  let parts = (txt || '').split('-')
+  if (parts[0] === 'flat')
+    parts.shift()
+  return parts.join(' ').replace(/\s(\w)/g, (_, char) => char.toUpperCase())
+}
+
+
 export function register (key, setter, getter) {
   let el = this.querySelector('.' + key) || this.firstElementChild
   setter = setter || ((el, val) => { el.textContent = val })

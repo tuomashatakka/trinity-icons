@@ -2,8 +2,8 @@ const { readFileSync, writeFileSync } = require('fs')
 const { basename } = require('path')
 const { getSVGFiles, BASE_PATH } = require('./utils')
 
-let src   = '/Users/tuomas/Documents/Cloud/Creative Cloud Files/Resources/Icons/Duality/raster/trinity-2017-05' || process.argv[2] || BASE_PATH
-let files = getSVGFiles(src)
+let src    = '/Users/tuomas/Documents/Cloud/Creative Cloud Files/Resources/Icons/Duality/raster/trinity-2017-05' || process.argv[2] || BASE_PATH
+let files  = getSVGFiles(src)
 
 function processCSS (content) {
   content = content.replace(/class=\".*?\"/gi, '')

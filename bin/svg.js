@@ -1,6 +1,6 @@
 const { readFileSync, readdirSync, createWriteStream, stat } = require("fs")
 const { resolve, basename, dirname, parse } = require("path")
-const { slug, title: titleCase } = require('./utils')
+const { parseSVGFileMeta, slug, title: titleCase } = require('./utils')
 
 function getSVGFiles (dir) {
   let files = readdirSync(dir)
@@ -58,7 +58,8 @@ function getStats ({ path, format='json' }) {
       let displayName = cleanup(titleCase(name))
       let date = stats.ctime
 
-      stats = { path, name, displayName, date, variant, }
+      let parsed = parseSVGFileMeta(path)
+      stats = Object.assign({}, { path, name, displayName, date, variant }, parsed)
 
       if (format === 'utf8')
         accept(JSON.stringify(stats, null, 2))
@@ -80,11 +81,11 @@ function wrapSymbol ({ name, content, viewBox }) {
 function readAll ({ src, dst }) {
 
   const OUTPUT_FILE_COUNT = 2
-  let statStream = createWriteStream(resolve(dirname(dst), 'icon_stats.json'))
-  let stream     = createWriteStream(dst)
-  let files      = getSVGFiles(src)
-  let fileIter   = 0
-  stream.iter = 0
+  let statStream  = createWriteStream(resolve(dirname(dst), 'icon_stats.json'))
+  let stream      = createWriteStream(dst)
+  let files       = getSVGFiles(src)
+  let fileIter    = 0
+  stream.iter     = 0
   statStream.iter = 0
 
   return new Promise((done) => {

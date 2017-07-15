@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 320">
+  <title>misc.warning</title>
+  <g id="box">
+    <polygon points="160 44.984 44.512 245.016 275.488 245.016 160 44.984" class="outline"/>
+    <rect x="155" y="100" width="10" height="90" class="fill"/>
+    <circle cx="160" cy="215" r="5" class="fill"/>
+  </g>
+</svg>

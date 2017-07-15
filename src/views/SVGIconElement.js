@@ -1,14 +1,12 @@
 
 import { ICON_VARIANTS } from '../constants'
+import { cleanup } from '../utils'
 
 
 export default class SVGIconElement extends HTMLElement {
 
   get displayName () {
-    let parts = (this.name || '').split('-')
-    if (parts[0] === 'flat')
-      parts.shift()
-    return parts.join(' ').replace(/\s(\w)/g, (_, char) => char.toUpperCase())
+    return cleanup(this.name)
   }
 
   get variant () {
