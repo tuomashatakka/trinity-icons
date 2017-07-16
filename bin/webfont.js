@@ -25,7 +25,7 @@ function generateIconFont (dest='assets/font/', archiveDest='assets/iconfont') {
 
   let rename = name => {
     let meta = parseSVGFileMeta(name)
-    return slug(meta.category + '-' + meta.title)
+    return slug(meta.category + '-' + meta.title + '-' + meta.variant)
   }
   let files  = getSVGFiles()
     .map(parseSVGFileMeta)
