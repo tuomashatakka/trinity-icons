@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 320">
+  <title>interfaces.cross-circled-outline</title>
+  <g id="cross">
+    <path d="M204.8528,117.5736,120,202.4264m84.8528,0L120,117.5736" class="outline"/>
+  </g>
+  <g id="minus">
+    <circle cx="160" cy="160" r="120" class="outline"/>
+  </g>
+</svg>

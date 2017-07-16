@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 320">
+  <title>miscellaneous.diamond-filled</title>
+  <g id="diamond">
+    <polygon points="270 110 160 260 204 110 270 110" class="fill"/>
+    <polygon points="237 70 182 70 204 110 270 110 237 70" class="outline"/>
+    <path d="M116,110l44,150L50,110Zm0,0,44,150,44-150ZM83,70,50,110h66l22-40Zm55,0-22,40h88L182,70Z" class="outline"/>
+  </g>
+</svg>

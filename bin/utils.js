@@ -76,7 +76,7 @@ function getHTMLFragments (file) {
 }
 
 function slug (name, f=true) {
-  name = name.substr(0, name.length - 4).replace(/\s+/g, '-')
+  name = name.substr(0, name.length - 4).replace(/([^\w])+/g, '-')
   return f ? basename(name) : name
 }
 
