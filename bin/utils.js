@@ -57,13 +57,19 @@ function parseSVGFileMeta (item) {
   else {
     variant = 'regular'
   }
+
+  let displayName       = slug(title + '-' + variant)
+  let shortDisplayName  = slug(category + '-' + title + '-' + variant)
   return {
-    category,
-    title,
-    variant,
-    name,
     path,
-    raster }
+    name,
+    title,
+    raster,
+    variant,
+    category,
+    displayName,
+    shortDisplayName,
+  }
 }
 
 function getHTMLFragments (file) {
