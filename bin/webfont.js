@@ -23,9 +23,14 @@ function generateArchive (name, src) {
 
 function generateIconFont (dest='assets/font/', archiveDest='assets/iconfont') {
 
+  let names  = []
   let rename = name => {
     let meta = parseSVGFileMeta(name)
-    return slug(meta.category + '-' + meta.title + '-' + meta.variant)
+    name = slug(meta.title + '-' + meta.variant)
+    if (names.indexOf(name) > -1)
+      name = meta.category + '-' + name
+    names.push(name)
+    return name
   }
   let files  = getSVGFiles()
     .map(parseSVGFileMeta)

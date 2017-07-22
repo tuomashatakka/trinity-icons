@@ -18,7 +18,7 @@ export const defaultIconProvider = {
         let icons   = symbols
           .filter(sym => (
             !sym.getAttribute('id').startsWith('flat-') &&
-            !sym.getAttribute('id').startsWith('_.') ))
+            !sym.getAttribute('id').startsWith('_') ))
           .map(sym => symbolToIconElement(sym, container))
 
         resolve(icons)
